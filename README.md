@@ -1,1 +1,1 @@
-# ShoeShow-E-commerce-Web-Application
+# ShoeShow E-commerce Web Application
