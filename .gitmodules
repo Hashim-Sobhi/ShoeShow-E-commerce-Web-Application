@@ -1,9 +1,12 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/ahmedelbrmbaly/ShoeShow-backup.git
+	branch = main
 [submodule "ShoeShow-frontend-user"]
 	path = ShoeShow-frontend-user
 	url = https://github.com/ahmedelbrmbaly/ShoeShow-frontend-user.git
+	branch = master
 [submodule "ShoeShow-frontend-admin"]
 	path = ShoeShow-frontend-admin
 	url = https://github.com/ahmedelbrmbaly/ShoeShow-frontend-admin.git
+	branch = master
