@@ -1,46 +1,26 @@
 
 
 
-# ShoeShow E-commerce Platform Documentation
+# Table of Contents
 
-## Table of Contents
-
-1.  [Introduction to Project & Business Domain](introduction.md)
-2.  [Used Technologies & Frameworks](technologies.md)
-3.  [Project Design & Architecture](architecture.md)
-4.  [User Manual](user_manual.md)
-5.  [Setup and Installation](setup_installation.md)
-6.  [Contribution Guidelines](contribution_guidelines.md)
-7.  [Troubleshooting and FAQs](troubleshooting_faq.md)
-8.  [AI Chatbot Implementation Details](ai_chatbot_details.md)
-9.  [Future Enhancements](future_enhancements.md)
-10. [Deployment](deployment.md)
+1.  Introduction to Project & Business Domain
+2.  Used Technologies & Frameworks
+3.  Project Design & Architecture
+4.  User Manual
+5.  Setup and Installation
+6.  Contribution Guidelines
+7.  Troubleshooting and FAQs
+8.  AI Chatbot Implementation Details
+9.  Future Enhancements
+10. Deployment
 
 
-
-
-
-
-
+----
 
 # 1. Introduction to Project & Business Domain
 
+---
 ## 1.1 Project Overview
-
-## 1.2 Problem Statement
-
-## 1.3 Objectives of the Platform
-
-## 1.4 Target Audience & Users
-
-## 1.5 Business Domain: Footwear E-commerce
-
-## 1.6 Key Features & Functional Requirements
-
-
-
-
-### Project Overview
 
 ShoeShow is a modern, responsive e-commerce web application designed for premium footwear. It aims to provide a seamless online shopping experience for customers and efficient management tools for administrators. The platform is structured into three main components:
 
@@ -50,11 +30,14 @@ ShoeShow is a modern, responsive e-commerce web application designed for premium
 
 This project is a graduation project, emphasizing comprehensive documentation to showcase technical proficiency and a deep understanding of e-commerce principles.
 
-### Problem Statement
+---
+
+## 1.2 Problem Statement
 
 Many online footwear shopping platforms often present challenges such as poor user experience, limited product filtering options, and inefficient backend management tools. These issues can lead to customer dissatisfaction, high cart abandonment rates, low user retention, and increased administrative overhead. ShoeShow aims to address these common pain points by providing a streamlined, intuitive, and feature-rich e-commerce solution.
 
-### Objectives of the Platform
+---
+## 1.3 Objectives of the Platform
 
 The primary objectives of the ShoeShow platform are to:
 
@@ -65,8 +48,8 @@ The primary objectives of the ShoeShow platform are to:
 *   Offer a scalable and maintainable backend system for comprehensive management of products, orders, and users.
 *   Lay a solid foundation for future extensions, such as advanced analytics, mobile applications, or further AI integrations.
 *   Enhance user interaction and support through an integrated AI chatbot.
-
-### Target Audience & Users
+---
+## 1.4 Target Audience & Users
 
 The ShoeShow platform is designed to serve two primary user groups:
 
@@ -75,8 +58,8 @@ The ShoeShow platform is designed to serve two primary user groups:
 *   **Developers:** Individuals involved in the implementation, maintenance, and future development of the platform. This documentation is crucial for their understanding of the codebase and architecture.
 *   **Stakeholders:** Project evaluators and interested parties who require a high-level understanding of the project's capabilities and technical foundation.
 *   **Future Contributors:** New team members who will be onboarded to the project and require comprehensive resources for quick understanding and effective collaboration.
-
-### Business Domain: Footwear E-commerce
+---
+## 1.5 Business Domain: Footwear E-commerce
 
 ShoeShow operates within the dynamic and rapidly expanding **footwear e-commerce** domain. This sector of the retail industry is characterized by specific requirements and opportunities, including:
 
@@ -89,7 +72,8 @@ ShoeShow operates within the dynamic and rapidly expanding **footwear e-commerce
 
 ShoeShow addresses these domain-specific challenges by providing dynamic catalog management, high responsiveness, and secure order handling, all integrated within a user-friendly interface.
 
-### Key Features & Functional Requirements
+---
+## 1.6 Key Features & Functional Requirements
 
 The ShoeShow platform encompasses a range of core functionalities designed to meet the needs of both customers and administrators:
 
@@ -120,33 +104,14 @@ The ShoeShow platform encompasses a range of core functionalities designed to me
 *   **Order Administration:** Ability to view, update, and manage customer orders.
 
 
-
-
-
-
-
-
-
-
-
-# 2. Used Technologies & Frameworks
-
-## 2.1 Frontend Technologies
-
-## 2.2 Backend Technologies
-
-## 2.3 Database
-
-## 2.4 Security
-
-## 2.5 Other Tools
-
-
-
+---
+---
 
 # 2. Used Technologies & Frameworks
 
 This section provides a detailed overview of the technologies, frameworks, and tools utilized in the development of the ShoeShow e-commerce platform. The selection of these technologies was based on factors such as performance, scalability, maintainability, community support, and suitability for e-commerce applications and graduation project requirements.
+
+---
 
 ## 2.1 Frontend Technologies
 
@@ -158,9 +123,11 @@ The user-facing and administrative frontends of the ShoeShow platform are built 
 *   **Robust CLI:** Provides a command-line interface for efficient project scaffolding, development, testing, and building.
 *   **Strong Community Support:** A large and active community contributes to a wealth of resources, libraries, and tools.
 
-Both frontends leverage **Angular Material** for UI components, providing a consistent and responsive design based on Google's Material Design principles. **Bootstrap** grid system is also used for layout and responsiveness, as indicated in the `README.md` file [1].
+Both frontends leverage **Angular Material** for UI components, providing a consistent and responsive design based on Google's Material Design principles. **Bootstrap** grid system is also used for layout and responsiveness, as indicated in the `README.md` file
 
 For the AI chatbot integration within the user frontend, the application uses Angular's `HttpClient` module to communicate directly with the Groq API, utilizing the `"meta-llama/llama-4-scout-17b-16e-instruct"` model for AI responses. The chat interface and message handling are implemented using Angular components and services, allowing real-time interaction with the AI assistant. All API requests and responses are managed through Angular services, ensuring seamless integration between the frontend and the Groq-powered AI backend.
+
+---
 ## 2.2 Backend Technologies
 
 The ShoeShow backend is primarily developed using **Spring Boot**, a popular Java-based framework that simplifies the creation of stand-alone, production-grade Spring applications. Spring Boot was selected for its:
@@ -173,44 +140,47 @@ The ShoeShow backend is primarily developed using **Spring Boot**, a popular Jav
 
 The backend utilizes **Spring Data JPA** for the data persistence layer, providing an abstraction over JPA (Java Persistence API) implementations like Hibernate. This simplifies database interactions and reduces boilerplate code for CRUD operations and custom queries. The main programming language used is **Java 22**, .
 
-**Lombok** is used to minimize boilerplate code in Java classes, such as getters, setters, constructors, and logging annotations (`@Data`, `@AllArgsConstructor`, `@Slf4j`) [2].
+**Lombok** is used to minimize boilerplate code in Java classes, such as getters, setters, constructors, and logging annotations (`@Data`, `@AllArgsConstructor`, `@Slf4j`).
 
-**Jakarta EE** is also mentioned, indicating the use of modular enhanced Java APIs [2].
+**Jakarta EE** is also mentioned, indicating the use of modular enhanced Java APIs
 
+---
 ## 2.3 Database
 
-The ShoeShow platform utilizes a relational database for persistent data storage. The provided documentation indicates support for **MySQL** [2, 3], a widely-used open-source relational database management system known for its performance, reliability, and ease of use. The schema includes normalized tables for users, products, and orders, and order items [2].
+The ShoeShow platform utilizes a relational database for persistent data storage. The provided documentation indicates support for **MySQL** , a widely-used open-source relational database management system known for its performance, reliability, and ease of use. The schema includes normalized tables for users, products, and orders, and order items .
 
-**Flyway** is employed for database schema version control, managing database migrations through SQL scripts located in `/src/main/resources/db/migration/` [2]. This ensures that database schema changes are tracked, applied consistently, and are reversible.
+**Flyway** is employed for database schema version control, managing database migrations through SQL scripts located in `/src/main/resources/db/migration/` . This ensures that database schema changes are tracked, applied consistently, and are reversible.
+
+---
 
 ## 2.4 Security
 
-Security in the ShoeShow platform is handled using **Spring Security** in the backend, with a focus on **JWT (JSON Web Tokens)** for authentication and authorization [2, 3]. JWTs are used for secure, stateless communication between the frontend and backend. Key aspects of the security implementation include:
+Security in the ShoeShow platform is handled using **Spring Security** in the backend, with a focus on **JWT (JSON Web Tokens)** for authentication and authorization . JWTs are used for secure, stateless communication between the frontend and backend. Key aspects of the security implementation include:
 
-*   **Bearer Authentication Scheme:** JWT tokens are sent in the `Authorization: Bearer <jwt>` header [3].
-*   **Role-Based Access Control (RBAC):** Endpoints and functionalities are protected based on user roles (e.g., USER, ADMIN) using annotations like `@PreAuthorize` [2, 3].
-*   **Password Hashing:** User credentials are securely stored using hashing algorithms (likely BCrypt, a common practice with Spring Security) [3].
-*   **CORS Configuration:** Cross-Origin Resource Sharing is configured to allow secure communication between the frontend and backend running on different origins [2].
+*   **Bearer Authentication Scheme:** JWT tokens are sent in the `Authorization: Bearer <jwt>` header .
+*   **Role-Based Access Control (RBAC):** Endpoints and functionalities are protected based on user roles (e.g., USER, ADMIN) using annotations like `@PreAuthorize.
+*   **Password Hashing:** User credentials are securely stored using hashing algorithms (likely BCrypt, a common practice with Spring Security).
+*   **CORS Configuration:** Cross-Origin Resource Sharing is configured to allow secure communication between the frontend and backend running on different origins.
+
+---
 
 ## 2.5 Other Tools
 
 Several other tools are used in the development and management of the ShoeShow project:
 
-*   **IDEs:** **IntelliJ IDEA** is preferred for backend development, while **Visual Studio Code** is used for frontend development [2].
-*   **Version Control:** **Git** is used for source code management, and **GitHub** hosts the repositories, facilitating collaboration through features like pull requests and issues [2]. The project structure across multiple repositories within a parent repository suggests the potential use of Git submodules, which should be mentioned for clarity on managing the overall project codebase.
-*   **API Testing:** **Postman** is used for testing and documenting RESTful APIs during backend development and integration testing [2].
-*   **API Documentation:** **Springdoc/OpenAPI (Swagger)** is integrated into the backend to generate interactive API documentation and a UI (accessible typically at `/swagger-ui.html`) for exploring and testing endpoints [2, 3].
-*   **Logging:** **SLF4J/Logback** is used for logging, with configuration for log patterns and levels managed in `application.properties` [2]. Logs are typically written to a file (e.g., `logs/app.log`) [3].
-*   **Build and Dependency Management:** **Maven** is used for the backend project to manage dependencies, build the project, and handle plugins [2]. For the Angular frontends, **npm** is used for dependency management and running scripts (e.g., `npm install`, `ng serve`, `ng build`) [1].
-*   **Deployment Tools (Optional):** The documentation mentions the potential use of **Docker** for containerization and **CI/CD Tools** (like GitHub Actions or Jenkins) for automating build and test pipelines, particularly for production setups [2].
+*   **IDEs:** **IntelliJ IDEA** is preferred for backend development, while **Visual Studio Code** is used for frontend development .
+*   **Version Control:** **Git** is used for source code management, and **GitHub** hosts the repositories, facilitating collaboration through features like pull requests and issues . The project structure across multiple repositories within a parent repository suggests the potential use of Git submodules, which should be mentioned for clarity on managing the overall project codebase.
+*   **API Testing:** **Postman** is used for testing and documenting RESTful APIs during backend development and integration testing
+*   **API Documentation:** **Springdoc/OpenAPI (Swagger)** is integrated into the backend to generate interactive API documentation and a UI (accessible typically at `/swagger-ui.html`) for exploring and testing endpoints.
+*   **Logging:** **SLF4J/Logback** is used for logging, with configuration for log patterns and levels managed in `application.properties` . Logs are typically written to a file (e.g., `logs/app.log`) .
+*   **Build and Dependency Management:** **Maven** is used for the backend project to manage dependencies, build the project, and handle plugins . For the Angular frontends, **npm** is used for dependency management and running scripts (e.g., `npm install`, `ng serve`, `ng build`).
+*   **Deployment Tools (Optional):** The documentation mentions the potential use of **Docker** for containerization and **CI/CD Tools** (like GitHub Actions or Jenkins) for automating build and test pipelines, particularly for production setups
 
-
-
-
+---
 
 ## 2.6 Git Submodule Structure
 
-The ShoeShow project employs a **Git superproject pattern** to manage its multi-component architecture. This means that the main `ShoeShow-E-commerce-Web-Application` repository acts as a superproject that coordinates three independent software components as Git submodules [4]. This approach allows for separate development teams to work on different components while maintaining version consistency across the integrated system.
+The ShoeShow project employs a **Git superproject pattern** to manage its multi-component architecture. This means that the main `ShoeShow-E-commerce-Web-Application` repository acts as a superproject that coordinates three independent software components as Git submodules . This approach allows for separate development teams to work on different components while maintaining version consistency across the integrated system.
 
 The submodules are configured as follows:
 
@@ -222,37 +192,16 @@ The submodules are configured as follows:
 
 This structure is crucial for understanding how the different parts of the ShoeShow platform are versioned and integrated. When cloning the main repository, it is essential to initialize and update the submodules to get the complete project codebase, as detailed in the [Setup and Installation](setup_installation.md) section.
 
-[4] https://deepwiki.com/Hashim-Sobhi/ShoeShow-E-commerce-Web-Application
 
 
-
-
-
-
-
-
-
-# 3. Project Design & Architecture
-
-## 3.1 High-Level System Architecture
-
-## 3.2 Backend Architecture
-
-## 3.3 Frontend Architecture
-
-## 3.4 Database Design
-
-## 3.5 Security Model
-
-## 3.6 Integration Between Frontend & Backend
-
-
-
+---
+---
 
 # 3. Project Design & Architecture
 
 This section provides a comprehensive technical overview of the ShoeShow platform's design and architecture. It details how the various components—backend, frontends, and database—are structured, interact, and integrate to deliver a robust and scalable e-commerce solution. Understanding this architecture is crucial for development, maintenance, and future enhancements.
 
+---
 ## 3.1 High-Level System Architecture
 
 The ShoeShow system adopts a **client-server architecture**, a widely recognized and effective pattern for web applications. This architecture clearly separates the user interface (client) from the data storage and business logic (server), promoting modularity, scalability, and independent development of each component. The primary components of this high-level architecture are:
@@ -267,73 +216,91 @@ This separation ensures that each component can be developed, deployed, and scal
 
 *Figure 1: High-Level System Architecture of ShoeShow Platform*
 
+---
+
 ## 3.2 Backend Architecture
 
 The ShoeShow backend, built with Spring Boot, adheres to a well-defined **layered architecture** to ensure separation of concerns, maintainability, and testability. This structure is a standard practice in enterprise application development
 
+---
+
 ### 3.2.1 Layered Architecture (Controller, Service, Repository)
 
-*   **Controller Layer:** This is the outermost layer, responsible for handling incoming HTTP requests, validating input, and exposing REST endpoints. Controllers act as the entry point for client applications, translating HTTP requests into calls to the service layer. They are designed to be thin, primarily focusing on request mapping and response formatting [2].
-*   **Service Layer:** This layer encapsulates the core business logic of the application. Services orchestrate interactions between repositories, apply business rules, perform validations, and manage transactions. They are responsible for implementing the 
+*   **Controller Layer:** This is the outermost layer, responsible for handling incoming HTTP requests, validating input, and exposing REST endpoints. Controllers act as the entry point for client applications, translating HTTP requests into calls to the service layer. They are designed to be thin, primarily focusing on request mapping and response formatting
+*   **Service Layer:** This layer encapsulates the core business logic of the application. Services orchestrate interactions between repositories, apply business rules, perform validations, and manage transactions. They are responsible for implementing the
 
 
-use cases of the application, ensuring that data is processed correctly and consistently [2].
-*   **Repository Layer:** This layer provides an abstraction over the database, handling data persistence and retrieval. It typically consists of interfaces extending Spring Data JPA repositories (e.g., `JpaRepository`, `CrudRepository`). These repositories manage interactions with the database using JPA and Hibernate, abstracting away the complexities of direct database access [2].
+use cases of the application, ensuring that data is processed correctly and consistently .
+*   **Repository Layer:** This layer provides an abstraction over the database, handling data persistence and retrieval. It typically consists of interfaces extending Spring Data JPA repositories (e.g., `JpaRepository`, `CrudRepository`). These repositories manage interactions with the database using JPA and Hibernate, abstracting away the complexities of direct database access .
 *   **Domain Layer (Entities, DTOs, Mappers):** This layer defines the core data structures of the application. It includes:
-    *   **Entities:** Java objects that map directly to database tables, annotated with `@Entity`. They represent the persistent data model [2].
-    *   **DTOs (Data Transfer Objects):** Plain Java objects used to transfer data between layers, particularly between the service layer and the controller layer, and in API requests/responses. DTOs help decouple the internal data model from the API contract, providing flexibility and security [2].
-    *   **Mappers:** Components responsible for converting data between Entities and DTOs. This is crucial for maintaining a clear separation between the persistence model and the API model [2].
-*   **Configuration Layer:** This layer manages application startup, property sources, security configurations (e.g., Spring Security), and Swagger/OpenAPI documentation setup [2].
-*   **Exception Handling:** A centralized exception handling mechanism, often implemented using Spring's `@ControllerAdvice`, ensures that errors are caught and translated into standardized, user-friendly error responses [2].
+    *   **Entities:** Java objects that map directly to database tables, annotated with `@Entity`. They represent the persistent data model .
+    *   **DTOs (Data Transfer Objects):** Plain Java objects used to transfer data between layers, particularly between the service layer and the controller layer, and in API requests/responses. DTOs help decouple the internal data model from the API contract, providing flexibility and security .
+    *   **Mappers:** Components responsible for converting data between Entities and DTOs. This is crucial for maintaining a clear separation between the persistence model and the API model.
+*   **Configuration Layer:** This layer manages application startup, property sources, security configurations (e.g., Spring Security), and Swagger/OpenAPI documentation setup
+*   **Exception Handling:** A centralized exception handling mechanism, often implemented using Spring's `@ControllerAdvice`, ensures that errors are caught and translated into standardized, user-friendly error responses
 
 This layered approach promotes modularity, making the application easier to understand, test, and maintain. Each layer has a distinct responsibility, reducing coupling and improving code organization.
+
+---
 
 ### 3.2.2 RESTful API Structure
 
 The backend exposes its functionalities through RESTful APIs, adhering to standard REST principles:
 
-*   **Statelessness:** Each request from a client to the server must contain all the information needed to understand the request. The server does not store any client context between requests, typically relying on JWTs for authentication [3].
-*   **Resource-Oriented:** APIs are designed around resources (e.g., products, users, orders), and standard HTTP methods (GET, POST, PUT, DELETE) are used to perform operations on these resources [3].
-*   **Clear Naming Conventions:** Endpoints follow consistent and intuitive naming conventions (e.g., `/api/products`, `/api/users/{userId}/cart`) [3].
-*   **Standardized Response Formats:** API responses, including error responses, follow a consistent JSON structure, making them easier for client applications to parse and handle [2]. Paginated resources typically return metadata like `page`, `size`, `total`, and the `items` array [2].
+*   **Statelessness:** Each request from a client to the server must contain all the information needed to understand the request. The server does not store any client context between requests, typically relying on JWTs for authentication .
+*   **Resource-Oriented:** APIs are designed around resources (e.g., products, users, orders), and standard HTTP methods (GET, POST, PUT, DELETE) are used to perform operations on these resources .
+*   **Clear Naming Conventions:** Endpoints follow consistent and intuitive naming conventions (e.g., `/api/products`, `/api/users/{userId}/cart`) .
+*   **Standardized Response Formats:** API responses, including error responses, follow a consistent JSON structure, making them easier for client applications to parse and handle . Paginated resources typically return metadata like `page`, `size`, `total`, and the `items` array .
+
+---
 
 ## 3.3 Frontend Architecture
 
 Both the user-facing and admin frontends are built using Angular, following best practices for modern single-page application development. The architecture emphasizes modularity, component reusability, and a clear separation of concerns.
 
+---
+
 ### 3.3.1 Components & Modules
 
 The Angular applications are structured into modules and components:
 
-*   **Feature Modules:** The application is divided into distinct feature modules, each encapsulating a specific business domain or functionality (e.g., `AuthModule`, `ProductModule`, `CartModule`, `OrderModule`, `ProfileModule`). This modularity improves code organization, allows for lazy loading of features (enhancing initial load times), and makes the application easier to scale and maintain [1].
-*   **Shared Module:** Contains reusable components, directives, and pipes that are used across multiple feature modules. This promotes code reuse and consistency [1].
-*   **Core Module:** Includes services, guards, and interceptors that are used application-wide (e.g., authentication service, API interceptors for adding JWT tokens, route guards for protecting routes). This module is typically imported once in the root `AppModule` [1].
-*   **Component-Based Structure:** User interfaces are built as a hierarchy of reusable components. Each component is responsible for a specific part of the UI and its associated logic, promoting a clear separation of concerns and making the UI easier to manage and test [1].
+*   **Feature Modules:** The application is divided into distinct feature modules, each encapsulating a specific business domain or functionality (e.g., `AuthModule`, `ProductModule`, `CartModule`, `OrderModule`, `ProfileModule`). This modularity improves code organization, allows for lazy loading of features (enhancing initial load times), and makes the application easier to scale and maintain .
+*   **Shared Module:** Contains reusable components, directives, and pipes that are used across multiple feature modules. This promotes code reuse and consistency .
+*   **Core Module:** Includes services, guards, and interceptors that are used application-wide (e.g., authentication service, API interceptors for adding JWT tokens, route guards for protecting routes). This module is typically imported once in the root `AppModule` .
+*   **Component-Based Structure:** User interfaces are built as a hierarchy of reusable components. Each component is responsible for a specific part of the UI and its associated logic, promoting a clear separation of concerns and making the UI easier to manage and test .
+
+---
 
 ### 3.3.2 Service Layer
 
-Business logic and data fetching operations within the frontend are handled by injectable services. These services encapsulate interactions with the backend APIs, manage application state (where applicable), and provide utility functions. This ensures that components remain focused on presentation, while services handle the underlying data and logic [1].
+Business logic and data fetching operations within the frontend are handled by injectable services. These services encapsulate interactions with the backend APIs, manage application state (where applicable), and provide utility functions. This ensures that components remain focused on presentation, while services handle the underlying data and logic .
+
+---
 
 ### 3.3.3 Routing
 
-Angular's routing module (`AppRoutingModule`) is used to manage navigation between different views and application states. It defines the routes for the application, mapping URLs to specific components and enabling a smooth single-page application experience [1].
+Angular's routing module (`AppRoutingModule`) is used to manage navigation between different views and application states. It defines the routes for the application, mapping URLs to specific components and enabling a smooth single-page application experience.
 
+---
 ### 3.3.4 State Management
 
 While the provided documents don't explicitly detail a specific global state management library (like NgRx or Akita), a well-structured Angular application typically employs a consistent approach to manage application-wide state. This could involve using RxJS with BehaviorSubjects in services for simpler state management or a more comprehensive state management library for complex applications. RxJS for reactive programming and component communication.
 
+---
 ### 3.3.5 AI Chatbot Integration (User Frontend)
 
 The user frontend (`ShoeShow-frontend-user`) features an AI chatbot integration. This typically involves:
 
-*   **Chatbot Component/Service:** A dedicated Angular component or module responsible for rendering the chatbot interface, capturing user input, and displaying chatbot responses [1].
-*   **API Communication:** The chatbot component communicates with a backend AI service (which could be part of the main ShoeShow backend or a separate microservice/third-party API) to process user queries and retrieve intelligent responses. This communication is facilitated through Angular services making HTTP requests [1].
-*   **Data Flow:** User queries are sent from the frontend to the AI service, processed, and responses are sent back to the frontend for display. This involves managing the conversation flow and potentially integrating with other backend services (e.g., product catalog) for context-aware responses [1].
+*   **Chatbot Component/Service:** A dedicated Angular component or module responsible for rendering the chatbot interface, capturing user input, and displaying chatbot responses .
+*   **API Communication:** The chatbot component communicates with a backend AI service (which could be part of the main ShoeShow backend or a separate microservice/third-party API) to process user queries and retrieve intelligent responses. This communication is facilitated through Angular services making HTTP requests .
+*   **Data Flow:** User queries are sent from the frontend to the AI service, processed, and responses are sent back to the frontend for display. This involves managing the conversation flow and potentially integrating with other backend services (e.g., product catalog) for context-aware responses .
 
+---
 ## 3.4 Database Design
 
-The backend relies on a MySQL relational database. The database schema is managed using **Flyway**, which ensures version-controlled and automated database migrations [2].
+The backend relies on a MySQL relational database. The database schema is managed using **Flyway**, which ensures version-controlled and automated database migrations
 
+---
 ### 3.4.1 Entity-Relationship Diagram (ERD)
 
 An ERD visually represents the structure of the database, including tables, columns, and relationships between them. While a specific ERD image is not provided in the text documents,  suggests including one and outlines key relationships. Based on the described entities and functionalities, a conceptual ERD would include tables suchs as:
@@ -355,6 +322,7 @@ An ERD visually represents the structure of the database, including tables, colu
 
 *Figure 2: Conceptual Entity-Relationship Diagram for ShoeShow Platform*
 
+---
 ### 3.4.2 Major Tables Overview
 
 
@@ -369,55 +337,44 @@ An ERD visually represents the structure of the database, including tables, colu
 | `categories`       | Stores product categories for organization and filtering.               |
 | `wishlist_items`   | Stores products that users have added to their wishlist.                |
 
+---
+
 ## 3.5 Security Model
 
 The security of the ShoeShow platform is a critical aspect, implemented primarily in the backend using Spring Security and JWTs.
 
-*   **JWT Authentication:** User authentication is managed via JSON Web Tokens. Upon successful login, the backend issues a JWT to the client. This token is then included in the `Authorization: Bearer <token>` header for subsequent requests to protected endpoints [3].
-*   **Role-Based Access Control (RBAC):** Spring Security's `@PreAuthorize` annotation and similar mechanisms are used to enforce RBAC. Different user roles (e.g., `USER`, `ADMIN`) have varying levels of access to APIs and functionalities. For instance, admin-specific APIs are restricted to users with the `ADMIN` role [3].
-*   **Password Hashing:** User passwords are not stored in plaintext. Instead, they are securely hashed using a strong hashing algorithm (e.g., BCrypt) before being stored in the database. Spring Security provides robust support for password encoding [3].
-*   **CORS Configuration:** Proper Cross-Origin Resource Sharing (CORS) policies are configured on the backend to allow requests from the frontend domains while preventing unauthorized cross-origin requests [2].
+*   **JWT Authentication:** User authentication is managed via JSON Web Tokens. Upon successful login, the backend issues a JWT to the client. This token is then included in the `Authorization: Bearer <token>` header for subsequent requests to protected endpoints .
+*   **Role-Based Access Control (RBAC):** Spring Security's `@PreAuthorize` annotation and similar mechanisms are used to enforce RBAC. Different user roles (e.g., `USER`, `ADMIN`) have varying levels of access to APIs and functionalities. For instance, admin-specific APIs are restricted to users with the `ADMIN` role .
+*   **Password Hashing:** User passwords are not stored in plaintext. Instead, they are securely hashed using a strong hashing algorithm (e.g., BCrypt) before being stored in the database. Spring Security provides robust support for password encoding .
+*   **CORS Configuration:** Proper Cross-Origin Resource Sharing (CORS) policies are configured on the backend to allow requests from the frontend domains while preventing unauthorized cross-origin requests .
 
+---
 ## 3.6 Integration Between Frontend & Backend
 
 The integration between the Angular frontends and the Spring Boot backend is achieved through RESTful API calls. Key aspects of this integration include:
 
-*   **HTTP Communication:** Frontends make HTTP requests (GET, POST, PUT, DELETE) to the backend's REST endpoints to retrieve, create, update, and delete data. Angular's `HttpClient` module is used for this purpose [1].
-*   **JSON Data Exchange:** Data is exchanged between the frontend and backend primarily in JSON format. The backend exposes JSON APIs, and the frontends consume and send JSON payloads [2].
+*   **HTTP Communication:** Frontends make HTTP requests (GET, POST, PUT, DELETE) to the backend's REST endpoints to retrieve, create, update, and delete data. Angular's `HttpClient` module is used for this purpose .
+*   **JSON Data Exchange:** Data is exchanged between the frontend and backend primarily in JSON format. The backend exposes JSON APIs, and the frontends consume and send JSON payloads .
 *   **Authentication Flow:**
     1.  User attempts to log in via the frontend.
     2.  Frontend sends user credentials to the backend's authentication API.
     3.  Backend authenticates the user and, if successful, generates a JWT and sends it back to the frontend.
     4.  Frontend stores the JWT (e.g., in local storage or session storage).
     5.  For subsequent authenticated requests, the frontend includes the JWT in the `Authorization: Bearer <token>` header.
-    6.  Backend validates the JWT for each request to ensure the user is authenticated and authorized [3].
-*   **Error Handling:** Both frontend and backend implement robust error handling mechanisms. The backend returns meaningful HTTP status codes and error messages in JSON format, which the frontend can then interpret and display to the user [2].
-*   **API Documentation (Swagger UI):** The backend provides interactive API documentation via Swagger UI, which is invaluable for frontend developers to understand available endpoints, request/response formats, and test API calls directly [2, 3]. This facilitates seamless integration and reduces communication overhead between frontend and backend teams.
+    6.  Backend validates the JWT for each request to ensure the user is authenticated and authorized.
+*   **Error Handling:** Both frontend and backend implement robust error handling mechanisms. The backend returns meaningful HTTP status codes and error messages in JSON format, which the frontend can then interpret and display to the user.
+*   **API Documentation (Swagger UI):** The backend provides interactive API documentation via Swagger UI, which is invaluable for frontend developers to understand available endpoints, request/response formats, and test API calls directly. This facilitates seamless integration and reduces communication overhead between frontend and backend teams.
 
+---
 
-
-
-
-
-
-
-
-
-
-# 4. User Manual
-
-## 4.1 Accessing the System
-
-## 4.2 User Roles and Permissions
-
-## 4.3 Feature Walkthrough
-
-
+---
 
 
 # 4. User Manual
 
 This section serves as a practical guide for both end-users (customers) and administrators on how to effectively navigate and utilize the ShoeShow e-commerce platform. It covers system access, defined user roles and their permissions, and provides a detailed walkthrough of key features and functionalities.
+
+---
 
 ## 4.1 Accessing the System
 
@@ -429,9 +386,13 @@ The ShoeShow platform is a web-based application accessible through a standard w
 *   **Internet Connection:** Required for accessing the deployed application. For local development, an internet connection might be needed for initial setup and dependency downloads.
 *   **User Credentials:** Registered users will need their email and password to log in. Administrators will require specific admin credentials.
 
+---
+
 ## 4.2 User Roles and Permissions
 
 The ShoeShow platform defines distinct roles with clearly scoped permissions to ensure secure and appropriate access to functionalities. The primary roles are Customer and Admin.
+
+---
 
 ### 4.2.1 Customer Role
 
@@ -448,6 +409,9 @@ The ShoeShow platform defines distinct roles with clearly scoped permissions to 
 *   **Profile Management:** Access and update their personal profile information (e.g., name, email, shipping address).
 *   **AI Chatbot Interaction:** Engage with the integrated AI chatbot for support and queries.
 
+---
+
+
 ### 4.2.2 Admin Role
 
 **Description:** This role is assigned to internal team members who manage the e-commerce operations through the `ShoeShow-frontend-admin` application. This role has elevated privileges to oversee and manage various aspects of the platform.
@@ -460,11 +424,15 @@ The ShoeShow platform defines distinct roles with clearly scoped permissions to 
 *   **Access to Admin-Specific Features:** Access to any other administrative tools or reports implemented in the admin frontend.
 *  **Dashboard Access:** View administrative dashboards that provide insights into platform performance, sales metrics, and user activity.
 
-**Security Note:** Admin functionalities are typically protected by role-based access control, ensuring that only authenticated users with the `ADMIN` role can access sensitive endpoints and features [2].
+**Security Note:** Admin functionalities are typically protected by role-based access control, ensuring that only authenticated users with the `ADMIN` role can access sensitive endpoints and features
+
+---
 
 ## 4.3 Feature Walkthrough
 
 This section provides a step-by-step guide to the main user flows and features available on the ShoeShow platform. It aims to provide clear instructions for both customers and administrators, with suggestions for visual aids (Demo Video will be provided) to enhance understanding.
+
+---
 
 ### 4.3.1 User Registration & Login
 
@@ -472,7 +440,7 @@ This section provides a step-by-step guide to the main user flows and features a
 
 **Customer Flow:**
 
-1.  **Navigate to Authentication Page:** Open the ShoeShow user frontend in your web browser. You will typically find 
+1.  **Navigate to Authentication Page:** Open the ShoeShow user frontend in your web browser. You will typically find
 
 
 links or buttons for "Login" or "Sign Up" on the homepage or in the navigation bar.
@@ -484,12 +452,14 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
     *   **For Login:** Enter your registered email address and password.
 4.  **Submit the Form:** Click the "Sign Up" or "Login" button to submit the form.
 5.  **Authentication and Redirection:**
-    *   **Upon successful Registration:** If the provided information is valid and the registration is successful, your account will be created. You will likely be automatically logged in and redirected to the product listing page or the homepage, ready to start shopping [1].
+    *   **Upon successful Registration:** If the provided information is valid and the registration is successful, your account will be created. You will likely be automatically logged in and redirected to the product listing page or the homepage, ready to start shopping
     *   **Upon successful Login:** If your email and password match a registered account, you will be authenticated and logged into the platform. You will then be redirected to the product listing page, your dashboard, or the homepage.
 
-**Security:** The platform uses JWT (JSON Web Tokens) for secure authentication. Upon successful login, a JWT is issued by the backend and stored on the client side (e.g., in local storage or cookies). This token is then sent with subsequent requests to protected backend endpoints to verify your identity and permissions [2, 3].
+**Security:** The platform uses JWT (JSON Web Tokens) for secure authentication. Upon successful login, a JWT is issued by the backend and stored on the client side (e.g., in local storage or cookies). This token is then sent with subsequent requests to protected backend endpoints to verify your identity and permissions .
 
 **Admin Login:** The process for admin login is similar but is performed through the separate `ShoeShow-frontend-admin` application. Administrators will use their designated admin credentials to access the administrative dashboard and functionalities.
+
+---
 
 ### 4.3.2 Browsing & Searching for Shoes
 
@@ -500,16 +470,18 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
 1.  **Access the Product Catalog:** After logging in (or as a guest user, if browsing is allowed without login), you will typically land on the product listing page or can navigate to it via a "Shop" or "Products" link.
 2.  **View Products:** The page displays a grid or list of available shoes. Products are usually shown with their image, name, brand, and price.
 3.  **Filtering Products:** Use the available filter options to narrow down the product list. Filters can include:
-    *   **Category:** (e.g., Sneakers, Casual, Formal, Boots) [1]
-    *   **Gender:** (e.g., Male, Female, Unisex) [1]
-    *   **Brand:** Filter by specific shoe brands [1]
-    *   **Size:** Filter by available shoe sizes [1]
-    *   **Color:** Filter by available colors [1]
-4.  **Sorting Products:** Sort the product list based on criteria such as price (low to high, high to low), new arrivals, or popularity [2].
-5.  **Searching Products:** Use the search bar to find products by keywords (e.g., "running shoes", "red sneakers") [2]. Type your query into the search bar and press Enter or click the search icon. The product list will update to show results matching your search term.
+    *   **Category:** (e.g., Sneakers, Casual, Formal, Boots)
+    *   **Gender:** (e.g., Male, Female, Unisex)
+    *   **Brand:** Filter by specific shoe brands
+    *   **Size:** Filter by available shoe sizes
+    *   **Color:** Filter by available colors
+4.  **Sorting Products:** Sort the product list based on criteria such as price (low to high, high to low), new arrivals, or popularity .
+5.  **Searching Products:** Use the search bar to find products by keywords (e.g., "running shoes", "red sneakers") . Type your query into the search bar and press Enter or click the search icon. The product list will update to show results matching your search term.
 6.  **Pagination/Loading More Products:** If there are many products, they may be displayed in pages. Look for pagination controls at the bottom of the list or a "Load More" button to view additional products.
 
 **Best Practice:** The platform aims to provide efficient filtering and searching to help you quickly find the shoes you are looking for. Combining filters and search terms can further refine your results.
+
+---
 
 ### 4.3.3 Product Details Page
 
@@ -519,16 +491,18 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
 
 1.  **Navigate to Product Details:** From the product listing page, click on the image or name of a product you are interested in. This will take you to the Product Details page.
 2.  **View Product Information:** The page displays detailed information about the selected shoe, including:
-    *   **High-Quality Images:** Multiple images of the product, often with a gallery or carousel to view different angles [2].
+    *   **High-Quality Images:** Multiple images of the product, often with a gallery or carousel to view different angles .
     *   **Product Name and Brand:** The full name and brand of the shoe.
-    *   **Description:** A detailed description of the product, including materials, features, and style [2].
+    *   **Description:** A detailed description of the product, including materials, features, and style .
     *   **Price:** The current price of the shoe.
-    *   **Available Variations:** Options for selecting size and color. The available stock quantity for each variation may also be displayed [1, 2].
+    *   **Available Variations:** Options for selecting size and color. The available stock quantity for each variation may also be displayed .
 3.  **Select Variations:** Choose the desired size and color from the available options. The system may update the displayed stock quantity based on your selection.
 4.  **Add to Cart:** Once you have selected the desired variations, click the "Add to Cart" button to add the product to your shopping cart.
 5.  **Add to Wishlist:** If you want to save the product for later without purchasing it immediately, click the "Add to Wishlist" button.
 
 **Visuals:** The Product Details page is designed to showcase the product effectively with clear images and easy-to-use options for selecting variations.
+
+---
 
 ### 4.3.4 Cart and Checkout Process
 
@@ -538,13 +512,16 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
 
 1.  **Access the Shopping Cart:** Click on the shopping cart icon, usually located in the header or navigation bar. This will take you to the Shopping Cart page.
 2.  **Review Cart Contents:** The page lists all the products you have added to your cart, showing the product image, name, selected variations, quantity, and price for each item.
-3.  **Adjust Quantity:** You can increase or decrease the quantity of each item in your cart. The total price for that item and the overall cart total will update automatically [1].
+3.  **Adjust Quantity:** You can increase or decrease the quantity of each item in your cart. The total price for that item and the overall cart total will update automatically .
 4.  **Remove Items:** To remove an item from your cart, click the "Remove" or "Delete" button associated with that item.
 5.  **Proceed to Checkout:** Once you are satisfied with the items in your cart, click the "Proceed to Checkout" or "Checkout" button.
 6.  **Provide Shipping Information:** You will be prompted to enter or select your shipping address. If you are a registered user, your saved addresses may be available.
 7.  **Review Order Summary:** Before finalizing the order, you will see an order summary page detailing the items, quantities, prices, shipping cost, taxes (if applicable), and the total amount.
 8.  **Place Order:** Review the order summary carefully and click the "Place Order" or "Confirm Purchase" button to complete the transaction. Your order will be submitted to the backend for processing.
-**Security:** The checkout process is secured to protect your personal and payment information.
+    **Security:** The checkout process is secured to protect your personal and payment information.
+
+---
+
 
 ### 4.3.5 Order History
 
@@ -557,6 +534,8 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
 3.  **View Order Details:** Click on a specific order in the list to view its detailed information. This page will show the items included in the order, their quantities, prices, the shipping address, and a more detailed breakdown of the order status.
 
 **Best Practice:** The order history provides a convenient way to track your purchases and refer back to past orders.
+
+---
 
 ### 4.3.6 Admin Dashboard
 
@@ -582,12 +561,16 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
 **Note:** The Admin Dashboard is a separate application from the customer frontend and is secured to ensure only authorized personnel can access it.
 
 
+---
+---
 
 
 
 # 5. Setup and Installation
 
 This section provides detailed instructions for setting up the ShoeShow e-commerce platform in a local development environment. It covers the prerequisites, cloning the repositories, installing dependencies, and running each component (frontend user, frontend admin, and backend).
+
+---
 
 ## 5.1 Prerequisites
 
@@ -604,6 +587,8 @@ Before you begin, ensure you have the following software installed on your syste
 *   **Maven:** Version 3.x or higher is required for building the Spring Boot backend. Download it from [maven.apache.org](https://maven.apache.org/).
 *   **MySQL Database:** A running instance of MySQL database. You can install it locally or use a Docker container. Ensure you have a database user with appropriate permissions.
 *   **Git:** For cloning the project repositories.
+
+---
 
 ## 5.2 Repository Structure and Cloning
 
@@ -630,6 +615,9 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
 
     **Note:** The `ShoeShow-frontend-user` repository has a specific branch `ayb/ai-bot` for AI chatbot integration, and `ShoeShow-frontend-admin` has an `auth-branch`. The `git submodule update --init --recursive` command should pull the correct branches as configured in the parent repository.
 
+
+---
+
 ## 5.3 Backend Setup (ShoeShow-backend)
 
 1.  **Navigate to the Backend Directory:**
@@ -642,7 +630,7 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
 
     Open the `application.properties` file (typically located at `src/main/resources/application.properties`) and configure your MySQL database connection details. Replace the placeholders with your actual database URL, username, and password.
 
-    ```properties
+```properties
     spring.datasource.url=jdbc:mysql://localhost:3306/shoeshow_db?createDatabaseIfNotExist=true
     spring.datasource.username=your_db_username
     spring.datasource.password=your_db_password
@@ -653,9 +641,11 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
     # Flyway configuration (if used for migrations)
     spring.flyway.enabled=true
     spring.flyway.locations=classpath:db/migration
-    ```
+    
+```
 
-    **Note:**  Flyway is used for database migrations. Ensure your `application.properties` file is configured to enable Flyway and point to the correct migration script location (`classpath:db/migration`). Flyway will automatically run pending migrations on application startup.
+
+**Note:**  Flyway is used for database migrations. Ensure your `application.properties` file is configured to enable Flyway and point to the correct migration script location (`classpath:db/migration`). Flyway will automatically run pending migrations on application startup.
 
 3.  **Build the Backend Project:**
 
@@ -674,6 +664,9 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
     Alternatively, if you are using an IDE like IntelliJ IDEA, you can run the main application class directly.
 
     The backend application will start, typically on port `8081` as per our configuration refer to `application.properties`. You can verify its status by accessing the Swagger UI at `http://localhost:8081/swagger-ui.html`.
+
+
+---
 
 ## 5.4 Frontend User Setup (ShoeShow-frontend-user)
 
@@ -710,6 +703,9 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
 
     The application will start a local development server, typically accessible at `http://localhost:4200/`. The app will automatically reload if you make any code changes.
 
+
+---
+
 ## 5.5 Frontend Admin Setup (ShoeShow-frontend-admin)
 
 1.  **Navigate to the Frontend Admin Directory:**
@@ -743,23 +739,22 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
 
     The application will start a local development server, typically accessible on a different port (e.g., `http://localhost:4201/` . Check your console output for the exact port.
 
+---
+
 ## 5.6 Post-Installation Steps
 
-*   **Database Seeding:** If your application requires initial data (e.g., admin users, sample products), you might need to run specific SQL scripts or use a data seeding mechanism provided by the backend.  `db_script.sql` and `script_data.sql` for database setup and initial data [3].
+*   **Database Seeding:** If your application requires initial data (e.g., admin users, sample products), you might need to run specific SQL scripts or use a data seeding mechanism provided by the backend.  `db_script.sql` and `script_data.sql` for database setup and initial data.
 *   **Testing:** Once all components are running, you can perform basic tests to ensure everything is working correctly. For example, try registering a new user, logging in, browsing products, and adding items to the cart.
 
 
-
-
-
-
-
-
-
+---
+---
 
 # 6. Contribution Guidelines
 
 This section outlines the guidelines for contributing to the ShoeShow e-commerce platform. Adhering to these guidelines ensures code quality, consistency, and efficient collaboration among team members and future contributors.
+
+---
 
 ## 6.1 Getting Started
 
@@ -785,6 +780,8 @@ Before making any contributions, ensure you have set up your local development e
     git pull upstream main # or the relevant branch like 'ayb/ai-bot' for frontend-user
     ```
 
+---
+
 ## 6.2 Branching Strategy
 
 The project follows a branching strategy (e.g., Git Flow or a simplified feature branching model) to manage development and releases. Key principles include:
@@ -793,6 +790,8 @@ The project follows a branching strategy (e.g., Git Flow or a simplified feature
 *   **`develop` branch:** This branch integrates all new features and bug fixes. All feature branches should be merged into `develop`.
 *   **Feature Branches:** For each new feature or significant bug fix, create a new branch from `develop`. Name your branches descriptively (e.g., `feature/add-wishlist`, `bugfix/login-issue`).
 *   **Hotfix Branches:** For urgent bug fixes in production, create a hotfix branch directly from `main`.
+
+---
 
 ## 6.3 Commit Guidelines
 
@@ -814,6 +813,9 @@ handling upon successful registration.
 Closes #789
 ```
 
+
+---
+
 ## 6.4 Pull Request Process
 
 All contributions should be submitted via Pull Requests (PRs).
@@ -830,6 +832,8 @@ All contributions should be submitted via Pull Requests (PRs).
 5.  **Pass CI/CD Checks:** Ensure all automated tests and checks (if configured) pass successfully.
 6.  **Merge:** Once approved and all checks pass, your PR will be merged into the target branch.
 
+---
+
 ## 6.5 Coding Standards
 
 Adhere to the project's established coding standards for consistency and readability. While specific style guides are not provided, general best practices include:
@@ -840,32 +844,32 @@ Adhere to the project's established coding standards for consistency and readabi
 *   **DRY Principle:** Avoid duplicating code. Refactor common logic into reusable functions or components.
 *   **Single Responsibility Principle:** Ensure each function, component, or class has a single, well-defined responsibility.
 
+
+---
+
 ## 6.6 Testing
 
 All new features and bug fixes should be accompanied by appropriate tests (unit, integration, end-to-end) to ensure functionality and prevent regressions. Run existing tests before submitting a PR to ensure your changes haven't introduced new issues.
 
-*   **Frontend (Angular):** Run unit tests with `ng test` and end-to-end tests with `ng e2e` [1].
-*   **Backend (Spring Boot):** Run tests with `mvn test` [2].
+*   **Frontend (Angular):** Run unit tests with `ng test` and end-to-end tests with `ng e2e`.
+*   **Backend (Spring Boot):** Run tests with `mvn test` .
 
 
-
-
-
-
-
-
-
+---
+---
 
 # 7. Troubleshooting and FAQs
 
 This section provides solutions to common issues that developers and users might encounter while setting up, running, or interacting with the ShoeShow e-commerce platform. It also addresses frequently asked questions to provide quick answers and reduce support inquiries.
+
+---
 
 ## 7.1 General Troubleshooting Tips
 
 Before diving into specific issues, consider these general troubleshooting steps:
 
 *   **Check Logs:** Always start by examining the application logs for both frontend and backend. Logs provide valuable information about errors, warnings, and the application's state.
-    *   **Backend Logs:** Typically found in `logs/app.log` or printed to the console if running directly [1].
+    *   **Backend Logs:** Typically found in `logs/app.log` or printed to the console if running directly .
     *   **Frontend Console:** Open your browser's developer console (usually F12) to check for JavaScript errors or network request failures.
 *   **Verify Configuration:** Double-check all configuration files (e.g., `application.properties` for backend, `environment.ts` for frontends) to ensure correct values, especially API endpoints and database credentials.
 *   **Ensure All Services Are Running:** Confirm that the MySQL database, the Spring Boot backend, and both Angular frontends are running correctly.
@@ -873,7 +877,11 @@ Before diving into specific issues, consider these general troubleshooting steps
 *   **Clear Cache/Rebuild:** For frontend issues, try clearing your browser cache or performing a clean build (`npm cache clean --force` then `npm install` and `ng build`). For backend, `mvn clean install` can resolve build-related problems.
 *   **Consult Documentation:** Refer back to the [Setup and Installation](setup_installation.md) and [Project Design & Architecture](architecture.md) sections for setup details and system overview.
 
+---
+
 ## 7.2 Common Issues and Solutions
+
+---
 
 ### 7.2.1 Backend Issues
 
@@ -889,7 +897,7 @@ Before diving into specific issues, consider these general troubleshooting steps
 *   **Database Configuration:** Verify `spring.datasource.url`, `username`, and `password` in `application.properties`. Ensure the database name is correct and the user has privileges.
 *   **MySQL Status:** Check if your MySQL server is running. Use `sudo systemctl status mysql` on Linux or check services on Windows.
 *   **Port Conflict:** Change the backend port in `application.properties` (e.g., `server.port=8081`) or stop the process using port 8081.
-*   **Flyway Migrations:** Check the Flyway logs during startup for migration errors. Ensure SQL scripts in `src/main/resources/db/migration` are valid and correctly versioned [1].
+*   **Flyway Migrations:** Check the Flyway logs during startup for migration errors. Ensure SQL scripts in `src/main/resources/db/migration` are valid and correctly versioned .
 
 #### Issue: 401 Unauthorized or 403 Forbidden errors from backend APIs.
 
@@ -916,6 +924,9 @@ Before diving into specific issues, consider these general troubleshooting steps
 *   **Backend Status:** Confirm the backend application is running and accessible. Check Swagger UI (`http://localhost:8081/swagger-ui.html`) to see available endpoints.
 *   **Endpoint Path:** Double-check the exact path of the API endpoint. Remember that paths are case-sensitive.
 
+
+---
+
 ### 7.2.2 Frontend Issues
 
 #### Issue: Angular application fails to compile or run (`ng serve`).
@@ -941,11 +952,13 @@ Before diving into specific issues, consider these general troubleshooting steps
 **Solutions:**
 *   **Backend Status:** Ensure the backend is running and accessible. Try accessing a public backend endpoint directly in your browser (e.g., `http://localhost:8081/api/products`).
 *   **API URL Configuration:** Verify the `apiUrl` in your frontend's `environment.ts` file is correct.
-*   **Browser Console:** Open the browser's developer console (F12) and check the 
+*   **Browser Console:** Open the browser's developer console (F12) and check the
 
 
 Network tab for failed API requests and the Console tab for JavaScript errors.
 *   **CORS:** If you see CORS-related errors in the browser console, ensure the backend has proper CORS configuration to allow requests from your frontend origin.
+
+---
 
 ### 7.2.3 Git Submodule Issues
 
@@ -963,6 +976,9 @@ Network tab for failed API requests and the Console tab for JavaScript errors.
     ```
 
 *   **Check `.gitmodules`:** Verify the `.gitmodules` file in the parent repository for correct paths and URLs for each submodule.
+
+
+---
 
 ## 7.3 Frequently Asked Questions (FAQs)
 
@@ -990,17 +1006,15 @@ Network tab for failed API requests and the Console tab for JavaScript errors.
 
 **A6:** The AI chatbot is integrated into the `ShoeShow-frontend-user` application. It communicates with the Groq API using the `"meta-llama/llama-4-scout-17b-16e-instruct"` model via HTTP requests. The chatbot uses well-crafted prompts and scenarios, allowing the AI to suggest which API endpoints to call based on user input. In the future, enhancements such as fine-tuning or Retrieval-Augmented Generation (RAG) with backend proxies may be implemented for a more effective AI chatbot experience.
 
-
-
-
-
-
-
+---
+---
 
 
 # 8. AI Chatbot Implementation Details
 
 This section provides a detailed overview of the AI chatbot integrated into the ShoeShow e-commerce platform, specifically within the `ShoeShow-frontend-user` application (on the `ayb/ai-bot` branch). The chatbot is designed to enhance user interaction, provide instant support, and improve the overall shopping experience by offering quick answers to common queries.
+
+---
 
 ## 8.1 Overview and Purpose
 
@@ -1010,6 +1024,8 @@ The AI chatbot serves as a virtual assistant for customers browsing the ShoeShow
 *   **Enhanced User Experience:** Offering a conversational interface for users to find information without navigating through multiple pages.
 *   **Product Discovery:** Assisting users in finding specific products or recommendations based on their queries.
 *   **Reduced Customer Service Load:** Automating responses to common inquiries, thereby freeing up human customer service agents for more complex issues.
+
+---
 
 ## 8.2 Integration Architecture
 
@@ -1026,6 +1042,8 @@ The AI chatbot is integrated into the `ShoeShow-frontend-user` application, comm
 
 *Figure 3: AI Chatbot Integration Flow*
 
+---
+
 ## 8.3 Key Features of the AI Chatbot
 
 *   **Conversational Interface:** Provides a natural language interaction method for users.
@@ -1034,6 +1052,8 @@ The AI chatbot is integrated into the `ShoeShow-frontend-user` application, comm
 *   **Contextual Understanding:** Maintaining context throughout a conversation to provide more relevant and accurate responses.
 *   **Integration with E-commerce Data:** Ability to pull real-time data from the ShoeShow platform (e.g., product availability, order status) to answer specific user queries.
 *   **Fallback Mechanisms:** If the chatbot cannot understand a query or provide a satisfactory answer, it should have mechanisms to gracefully handle the situation, such as suggesting alternative phrasing, providing links to FAQs, or offering to connect to human support.
+
+---
 
 ## 8.4 Data Flow and Configuration
 
@@ -1049,6 +1069,7 @@ The AI chatbot is integrated into the `ShoeShow-frontend-user` application, comm
 5.  **Response Transmission:** The Backend AI Service sends the generated response back to the Frontend Chatbot Service via an HTTP response.
 6.  **Frontend Display:** The Frontend Chatbot Service receives the response and passes it to the Chatbot UI Component, which then displays the chatbot\'s reply to the user in the chat interface.
 
+
 ### Configuration:
 
 Configuration for the AI chatbot typically involves:
@@ -1058,22 +1079,26 @@ Configuration for the AI chatbot typically involves:
 *   **Model Parameters:** For custom AI models, configuration might include parameters related to model version, confidence thresholds, or specific intents to be handled.
 *   **Fallback Responses:** Predefined messages or actions to be taken when the chatbot cannot provide a direct answer.
 
+
+---
+
 ## 8.5 Highlighting AI Usage
 
-It is crucial to emphasize the AI chatbot\'s role and implementation to gain maximum credit. 
+It is crucial to emphasize the AI chatbot\'s role and implementation to gain maximum credit.
 
 Key points to highlight include:
 
 *   **Innovation:** The integration of an AI chatbot demonstrates an innovative approach to enhancing user experience in an e-commerce platform, moving beyond standard functionalities.
 *   **Technical Complexity:** Discuss the technical challenges involved in integrating an AI service, including API communication, data serialization/deserialization, and handling asynchronous operations.
 *   **AI Model/Service Selection:** The chatbot uses the \`meta-llama/llama-4-scout-17b-16e-instruct\` model via the Groq API. This model was chosen for its advanced natural language understanding, strong conversational abilities, and suitability for e-commerce support scenarios, enabling accurate intent recognition and context-aware responses.
-*   **Natural Language Processing (NLP) Concepts:** NLP techniques such as tokenization, sentiment analysis, intent recognition, and entity extraction are applied within the chatbot to interpret user queries, extract relevant information (like product names or order numbers), and generate helpful, contextually appropriate replies.  
+*   **Natural Language Processing (NLP) Concepts:** NLP techniques such as tokenization, sentiment analysis, intent recognition, and entity extraction are applied within the chatbot to interpret user queries, extract relevant information (like product names or order numbers), and generate helpful, contextually appropriate replies.
 *   **Data Integration:** Describe how the chatbot integrates with the ShoeShow platform\'s data (e.g., product catalog, order history) to provide context-aware responses.
 *   **User Experience Impact:** Quantify (if possible) or qualitatively describe the positive impact of the chatbot on user engagement, support efficiency, and overall satisfaction.
 *   **Future Enhancements:** Discuss potential future improvements for the chatbot, such as more advanced conversational flows, personalized recommendations, or integration with voice interfaces.
 
 This section should clearly articulate the value added by the AI chatbot and the technical depth involved in its implementation, showcasing a strong understanding of AI principles and their practical application in an e-commerce context.
 
+---
 
 
 
@@ -1089,16 +1114,15 @@ The ShoeShow AI Chatbot leverages the `meta-llama/llama-4-scout-17b-16e-instruct
 
 This model forms the backbone of the chatbot\'s ability to intelligently interact with users and provide valuable assistance within the ShoeShow platform.
 
-
-
-
-
-
+---
+---
 
 
 # 9. Future Enhancements
 
 This section outlines potential future enhancements and areas for improvement for the ShoeShow e-commerce platform. These suggestions are based on common e-commerce features, technological advancements, and potential areas for expanding the project's functionality and reach.
+
+---
 
 ## 9.1 Potential Features and Functionalities
 
@@ -1122,14 +1146,14 @@ This section outlines potential future enhancements and areas for improvement fo
 *   **Real-time Updates:** Implement real-time features using WebSockets for instant updates on order status, stock levels, or chat messages.
 
 
-
-
-
-
+---
+---
 
 # 10. Deployment
 
 This section provides guidance on deploying the ShoeShow e-commerce platform to a production environment. It covers the general considerations for deploying a multi-component application, including the backend API, and both frontend applications.
+
+---
 
 ## 10.1 General Deployment Considerations
 
@@ -1142,9 +1166,13 @@ Deploying a multi-component application like ShoeShow requires careful planning 
 *   **CI/CD Pipeline:** Automate the build, test, and deployment processes using Continuous Integration/Continuous Delivery (CI/CD) pipelines to ensure consistent and rapid deployments.
 *   **Domain Names and DNS:** Configure appropriate domain names and DNS records to point to your deployed applications.
 
+---
+
 ## 10.2 Backend Deployment (Spring Boot)
 
 The ShoeShow backend is a Spring Boot application, which can be deployed as a standalone JAR file.
+
+---
 
 ### 10.2.1 Build for Production
 
@@ -1157,10 +1185,14 @@ mvn clean install
 
 This command will compile the code, run tests, and package the application into an executable JAR file (e.g., `target/shoeshow-backend.jar`).
 
+---
+
 ### 10.2.2 Server Environment
 
 *   **Java Runtime Environment (JRE):** Ensure your production server has a compatible JRE (Java 22 or higher) installed.
 *   **Database:** The production database (MySQL) should be accessible from the backend server. Configure the `application.properties` with the production database credentials and URL.
+
+---
 
 ### 10.2.3 Running the Application
 
@@ -1197,9 +1229,14 @@ sudo systemctl enable shoeshow-backend
 sudo systemctl start shoeshow-backend
 ```
 
+
+---
+
 ## 10.3 Frontend Deployment (Angular)
 
 Both `ShoeShow-frontend-user` and `ShoeShow-frontend-admin` are Angular applications that can be built into static files and served by a web server (e.g., Nginx, Apache) or a static site hosting service.
+
+---
 
 ### 10.3.1 Build for Production
 
@@ -1215,6 +1252,7 @@ ng build --configuration=production
 
 These commands will create optimized, minified, and production-ready static files in the `dist/` directory of each project.
 
+---
 ### 10.3.2 Serving Static Files
 
 Copy the contents of the `dist/` folder for each frontend to your web server\"s document root or upload them to your static site hosting service.
@@ -1255,15 +1293,22 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
+
+---
+
 ### 10.3.3 Configure API Endpoints
 
 Ensure that the `apiUrl` in the production environment files (`environment.prod.ts`) of both frontend applications points to the public URL of your deployed backend API.
+
+---
 
 ## 10.4 Database Deployment
 
 *   **Dedicated Database Server:** For production, it is highly recommended to use a dedicated database server or a managed database service (e.g., AWS RDS, Google Cloud SQL) for better performance, scalability, and reliability.
 *   **Schema Migration:** Flyway will handle database schema migrations automatically on backend startup, ensuring your production database is always up-to-date with the latest schema changes.
 *   **Backup and Restore:** Implement a robust backup and restore strategy for your production database to prevent data loss.
+
+---
 
 ## 10.5 CI/CD Pipeline (Example with GitHub Actions)
 
@@ -1315,8 +1360,5 @@ Similar workflows would be created for the frontend applications, triggering on 
 This comprehensive deployment strategy ensures that the ShoeShow platform can be reliably and efficiently delivered to end-users.
 
 
-
-
-
-
-
+---
+----
