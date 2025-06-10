@@ -46,7 +46,7 @@ ShoeShow is a modern, responsive e-commerce web application designed for premium
 
 *   **ShoeShow-frontend-user:** The customer-facing application, built with Angular, handling user interactions, product browsing, shopping cart, wishlist, and order management. This frontend also integrates an AI chatbot to enhance user support and engagement.
 *   **ShoeShow-frontend-admin:** An administrative frontend, also built with Angular, designed for managing products, users, and orders.
-*   **ShoeShow-backend:** The core backend system, likely built with Spring Boot (as indicated by `DOC2.md` and `DOC.md`), responsible for managing business logic, APIs, and data persistence. It serves both frontend applications.
+*   **ShoeShow-backend:** The core backend system, likely built with Spring Boot , responsible for managing business logic, APIs, and data persistence. It serves both frontend applications.
 
 This project is a graduation project, emphasizing comprehensive documentation to showcase technical proficiency and a deep understanding of e-commerce principles.
 
@@ -160,8 +160,7 @@ The user-facing and administrative frontends of the ShoeShow platform are built 
 
 Both frontends leverage **Angular Material** for UI components, providing a consistent and responsive design based on Google's Material Design principles. **Bootstrap** grid system is also used for layout and responsiveness, as indicated in the `README.md` file [1].
 
-For the AI chatbot integration within the user frontend, specific libraries or frameworks related to chatbot development and API communication would be used. While the exact technologies are not detailed in the provided documents, it would typically involve HTTP client modules (like Angular's `HttpClient`) to communicate with the backend AI service and potentially libraries for managing the chat interface and handling real-time communication.
-
+For the AI chatbot integration within the user frontend, the application uses Angular's `HttpClient` module to communicate directly with the Groq API, utilizing the `"meta-llama/llama-4-scout-17b-16e-instruct"` model for AI responses. The chat interface and message handling are implemented using Angular components and services, allowing real-time interaction with the AI assistant. All API requests and responses are managed through Angular services, ensuring seamless integration between the frontend and the Groq-powered AI backend.
 ## 2.2 Backend Technologies
 
 The ShoeShow backend is primarily developed using **Spring Boot**, a popular Java-based framework that simplifies the creation of stand-alone, production-grade Spring applications. Spring Boot was selected for its:
@@ -172,7 +171,7 @@ The ShoeShow backend is primarily developed using **Spring Boot**, a popular Jav
 *   **Layered Architecture Support:** Naturally supports the implementation of layered architectures (Controller, Service, Repository).
 *   **Dependency Management:** Simplifies the management of project dependencies.
 
-The backend utilizes **Spring Data JPA** for the data persistence layer, providing an abstraction over JPA (Java Persistence API) implementations like Hibernate. This simplifies database interactions and reduces boilerplate code for CRUD operations and custom queries. The main programming language used is **Java 22**, as mentioned in `DOC2.md` [2].
+The backend utilizes **Spring Data JPA** for the data persistence layer, providing an abstraction over JPA (Java Persistence API) implementations like Hibernate. This simplifies database interactions and reduces boilerplate code for CRUD operations and custom queries. The main programming language used is **Java 22**, .
 
 **Lombok** is used to minimize boilerplate code in Java classes, such as getters, setters, constructors, and logging annotations (`@Data`, `@AllArgsConstructor`, `@Slf4j`) [2].
 
@@ -180,7 +179,7 @@ The backend utilizes **Spring Data JPA** for the data persistence layer, providi
 
 ## 2.3 Database
 
-The ShoeShow platform utilizes a relational database for persistent data storage. The provided documentation (`DOC2.md` and `DOC.md`) indicates support for **MySQL** [2, 3], a widely-used open-source relational database management system known for its performance, reliability, and ease of use. The schema includes normalized tables for users, products, and orders, and order items [2].
+The ShoeShow platform utilizes a relational database for persistent data storage. The provided documentation indicates support for **MySQL** [2, 3], a widely-used open-source relational database management system known for its performance, reliability, and ease of use. The schema includes normalized tables for users, products, and orders, and order items [2].
 
 **Flyway** is employed for database schema version control, managing database migrations through SQL scripts located in `/src/main/resources/db/migration/` [2]. This ensures that database schema changes are tracked, applied consistently, and are reversible.
 
@@ -205,9 +204,6 @@ Several other tools are used in the development and management of the ShoeShow p
 *   **Build and Dependency Management:** **Maven** is used for the backend project to manage dependencies, build the project, and handle plugins [2]. For the Angular frontends, **npm** is used for dependency management and running scripts (e.g., `npm install`, `ng serve`, `ng build`) [1].
 *   **Deployment Tools (Optional):** The documentation mentions the potential use of **Docker** for containerization and **CI/CD Tools** (like GitHub Actions or Jenkins) for automating build and test pipelines, particularly for production setups [2].
 
-[1] /home/ubuntu/upload/README.md
-[2] /home/ubuntu/upload/DOC2.md
-[3] /home/ubuntu/upload/DOC.md
 
 
 
@@ -288,7 +284,7 @@ graph TD
 
 ## 3.2 Backend Architecture
 
-The ShoeShow backend, built with Spring Boot, adheres to a well-defined **layered architecture** to ensure separation of concerns, maintainability, and testability. This structure is a standard practice in enterprise application development and is clearly outlined in `DOC2.md` [2].
+The ShoeShow backend, built with Spring Boot, adheres to a well-defined **layered architecture** to ensure separation of concerns, maintainability, and testability. This structure is a standard practice in enterprise application development
 
 ### 3.2.1 Layered Architecture (Controller, Service, Repository)
 
@@ -339,7 +335,7 @@ Angular's routing module (`AppRoutingModule`) is used to manage navigation betwe
 
 ### 3.3.4 State Management
 
-While the provided documents don't explicitly detail a specific global state management library (like NgRx or Akita), a well-structured Angular application typically employs a consistent approach to manage application-wide state. This could involve using RxJS with BehaviorSubjects in services for simpler state management or a more comprehensive state management library for complex applications. The `documentation.md` mentions RxJS for reactive programming and component communication [1].
+While the provided documents don't explicitly detail a specific global state management library (like NgRx or Akita), a well-structured Angular application typically employs a consistent approach to manage application-wide state. This could involve using RxJS with BehaviorSubjects in services for simpler state management or a more comprehensive state management library for complex applications. RxJS for reactive programming and component communication.
 
 ### 3.3.5 AI Chatbot Integration (User Frontend)
 
@@ -355,7 +351,7 @@ The backend relies on a MySQL relational database. The database schema is manage
 
 ### 3.4.1 Entity-Relationship Diagram (ERD)
 
-An ERD visually represents the structure of the database, including tables, columns, and relationships between them. While a specific ERD image is not provided in the text documents, the `GradProjectDocumentationITI.md` suggests including one and outlines key relationships [4]. Based on the described entities and functionalities, a conceptual ERD would include tables suchs as:
+An ERD visually represents the structure of the database, including tables, columns, and relationships between them. While a specific ERD image is not provided in the text documents,  suggests including one and outlines key relationships. Based on the described entities and functionalities, a conceptual ERD would include tables suchs as:
 
 *   **users:** Stores user account information (ID, name, email, password hash, roles, phone, address).
 *   **roles:** Defines user roles (e.g., USER, ADMIN).
@@ -442,7 +438,6 @@ erDiagram
 
 ### 3.4.2 Major Tables Overview
 
-The `GradProjectDocumentationITI.md` and `DOC2.md` provide an overview of some major tables [2, 4]:
 
 | Table Name         | Purpose                                                                 |
 | ------------------ | ----------------------------------------------------------------------- |
@@ -480,10 +475,7 @@ The integration between the Angular frontends and the Spring Boot backend is ach
 *   **Error Handling:** Both frontend and backend implement robust error handling mechanisms. The backend returns meaningful HTTP status codes and error messages in JSON format, which the frontend can then interpret and display to the user [2].
 *   **API Documentation (Swagger UI):** The backend provides interactive API documentation via Swagger UI, which is invaluable for frontend developers to understand available endpoints, request/response formats, and test API calls directly [2, 3]. This facilitates seamless integration and reduces communication overhead between frontend and backend teams.
 
-[1] /home/ubuntu/upload/documentation.md
-[2] /home/ubuntu/upload/DOC2.md
-[3] /home/ubuntu/upload/DOC.md
-[4] /home/ubuntu/upload/GradProjectDocumentationITI.md
+
 
 
 
@@ -520,7 +512,7 @@ The ShoeShow platform is a web-based application accessible through a standard w
 
 ## 4.2 User Roles and Permissions
 
-The ShoeShow platform defines distinct roles with clearly scoped permissions to ensure secure and appropriate access to functionalities. The primary roles are Customer and Admin, as outlined in `GradProjectDocumentationITI.md` and `DOC.md` [1, 2].
+The ShoeShow platform defines distinct roles with clearly scoped permissions to ensure secure and appropriate access to functionalities. The primary roles are Customer and Admin.
 
 ### 4.2.1 Customer Role
 
@@ -672,9 +664,6 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
 
 **Note:** The Admin Dashboard is a separate application from the customer frontend and is secured to ensure only authorized personnel can access it.
 
-[1] /home/ubuntu/upload/GradProjectDocumentationITI.md
-[2] /home/ubuntu/upload/DOC2.md
-[3] /home/ubuntu/upload/DOC.md
 
 
 
@@ -754,7 +743,7 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
     spring.flyway.locations=classpath:db/migration
     ```
 
-    **Note:** The `DOC2.md` and `DOC.md` files indicate that Flyway is used for database migrations. Ensure your `application.properties` file is configured to enable Flyway and point to the correct migration script location (`classpath:db/migration`). Flyway will automatically run pending migrations on application startup.
+    **Note:**  Flyway is used for database migrations. Ensure your `application.properties` file is configured to enable Flyway and point to the correct migration script location (`classpath:db/migration`). Flyway will automatically run pending migrations on application startup.
 
 3.  **Build the Backend Project:**
 
@@ -844,12 +833,9 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
 
 ## 5.6 Post-Installation Steps
 
-*   **Database Seeding:** If your application requires initial data (e.g., admin users, sample products), you might need to run specific SQL scripts or use a data seeding mechanism provided by the backend. The `DOC.md` mentions `db_script.sql` and `script_data.sql` for database setup and initial data [3].
+*   **Database Seeding:** If your application requires initial data (e.g., admin users, sample products), you might need to run specific SQL scripts or use a data seeding mechanism provided by the backend.  `db_script.sql` and `script_data.sql` for database setup and initial data [3].
 *   **Testing:** Once all components are running, you can perform basic tests to ensure everything is working correctly. For example, try registering a new user, logging in, browsing products, and adding items to the cart.
 
-[1] /home/ubuntu/upload/documentation.md
-[2] /home/ubuntu/upload/DOC2.md
-[3] /home/ubuntu/upload/DOC.md
 
 
 
@@ -950,7 +936,6 @@ All new features and bug fixes should be accompanied by appropriate tests (unit,
 *   **Backend (Spring Boot):** Run tests with `mvn test` [2].
 
 [1] /home/ubuntu/upload/README.md
-[2] /home/ubuntu/upload/DOC2.md
 
 
 
@@ -1094,7 +1079,6 @@ Network tab for failed API requests and the Console tab for JavaScript errors.
 
 **A6:** The AI chatbot is integrated into the `ShoeShow-frontend-user` application, specifically in the `ayb/ai-bot` branch. It communicates with a backend AI service (which could be part of the main ShoeShow backend or a separate service) via API calls to process user queries and provide intelligent responses. More details are in the [AI Chatbot Implementation Details](ai_chatbot_details.md) section.
 
-[1] /home/ubuntu/upload/DOC2.md
 
 
 
