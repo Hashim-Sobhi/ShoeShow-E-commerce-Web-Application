@@ -263,23 +263,8 @@ The ShoeShow system adopts a **client-server architecture**, a widely recognized
 
 This separation ensures that each component can be developed, deployed, and scaled independently, contributing to the overall resilience and performance of the system.
 
-```mermaid
-graph TD
-    A[User (ShoeShow-frontend-user)] -->|HTTP/REST API| B(ShoeShow-backend)
-    C[ShoeShow-frontend-admin] -->|HTTP/REST API| B
-    B -->|JPA/JDBC| D[MySQL Database]
-    B -- Swagger/OpenAPI --> E[API Documentation]
-    subgraph User Interaction
-        A -- AI Chatbot Integration --> F[External AI Service]
-    end
+![img.png](img.png)
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bfb,stroke:#333,stroke-width:2px
-    style F fill:#fbb,stroke:#333,stroke-width:2px
-```
 *Figure 1: High-Level System Architecture of ShoeShow Platform*
 
 ## 3.2 Backend Architecture
@@ -364,76 +349,10 @@ An ERD visually represents the structure of the database, including tables, colu
 *   **cart:** Could be a table to persist shopping cart items if not managed transiently or in client-side storage.
 *   **wishlist_items:** Stores items added to a user's wishlist.
 
-```mermaid
-erDiagram
-    users {
-        BIGINT id PK
-        VARCHAR name
-        VARCHAR email
-        VARCHAR password_hash
-        VARCHAR phone
-        VARCHAR address
-    }
-    roles {
-        INT id PK
-        VARCHAR name
-    }
-    user_roles {
-        BIGINT user_id FK
-        INT role_id FK
-    }
-    products {
-        BIGINT id PK
-        VARCHAR name
-        VARCHAR brand
-        TEXT description
-        DECIMAL price
-        VARCHAR category_name
-        VARCHAR gender
-        VARCHAR main_image_url
-    }
-    product_variations {
-        BIGINT id PK
-        BIGINT product_id FK
-        VARCHAR size
-        VARCHAR color
-        INT stock_quantity
-    }
-    categories {
-        INT id PK
-        VARCHAR name
-    }
-    orders {
-        BIGINT id PK
-        BIGINT user_id FK
-        DATETIME order_date
-        DECIMAL total_amount
-        VARCHAR status
-        TEXT shipping_address
-    }
-    order_items {
-        BIGINT id PK
-        BIGINT order_id FK
-        BIGINT product_variation_id FK
-        INT quantity
-        DECIMAL price_per_unit
-    }
-    wishlist_items {
-        BIGINT id PK
-        BIGINT user_id FK
-        BIGINT product_id FK
-    }
 
-    users ||--o{ user_roles : has
-    roles ||--o{ user_roles : has
-    users ||--o{ orders : places
-    users ||--o{ wishlist_items : has
-    products ||--o{ product_variations : has
-    products ||--o{ wishlist_items : contains
-    categories ||--o{ products : categorizes
-    orders ||--o{ order_items : contains
-    product_variations ||--o{ order_items : includes
-```
+![img_1.png](img_1.png)
+
+
 *Figure 2: Conceptual Entity-Relationship Diagram for ShoeShow Platform*
 
 ### 3.4.2 Major Tables Overview
@@ -502,7 +421,7 @@ This section serves as a practical guide for both end-users (customers) and admi
 
 ## 4.1 Accessing the System
 
-The ShoeShow platform is a web-based application accessible through a standard web browser. Users can access the customer-facing frontend, while administrators will use a separate admin frontend. The specific URLs for accessing the system will depend on the deployment environment (e.g., `https://shoeshow.app` for a production environment, or `http://localhost:4200/` for a local development setup).
+The ShoeShow platform is a web-based application accessible through a standard web browser. Users can access the customer-facing frontend, while administrators will use a separate admin frontend. The specific URLs for accessing the system will depend on the deployment environment (e.g., `https://shoeshow.app` for a production environment, or `http://localhost:4200/` for client and  `http://localhost:4201/` for admin for a local development setup).
 
 ### Requirements for Access:
 
@@ -539,12 +458,13 @@ The ShoeShow platform defines distinct roles with clearly scoped permissions to 
 *   **User Management:** View and manage user accounts, which may include functionalities like viewing user details or managing user roles (though specific user management features are not fully detailed in provided docs, it's a common admin capability).
 *   **Order Management:** View all customer orders, update order statuses (e.g., pending, shipped, delivered, canceled), and manage order details.
 *   **Access to Admin-Specific Features:** Access to any other administrative tools or reports implemented in the admin frontend.
+*  **Dashboard Access:** View administrative dashboards that provide insights into platform performance, sales metrics, and user activity.
 
 **Security Note:** Admin functionalities are typically protected by role-based access control, ensuring that only authenticated users with the `ADMIN` role can access sensitive endpoints and features [2].
 
 ## 4.3 Feature Walkthrough
 
-This section provides a step-by-step guide to the main user flows and features available on the ShoeShow platform. It aims to provide clear instructions for both customers and administrators, with suggestions for visual aids (screenshots) to enhance understanding.
+This section provides a step-by-step guide to the main user flows and features available on the ShoeShow platform. It aims to provide clear instructions for both customers and administrators, with suggestions for visual aids (Demo Video will be provided) to enhance understanding.
 
 ### 4.3.1 User Registration & Login
 
@@ -614,19 +534,16 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
 
 **Purpose:** Allows users to review selected items, make final adjustments, and complete the purchase.
 
-**Customer Flow:**
+***Customer Flow:**
 
 1.  **Access the Shopping Cart:** Click on the shopping cart icon, usually located in the header or navigation bar. This will take you to the Shopping Cart page.
 2.  **Review Cart Contents:** The page lists all the products you have added to your cart, showing the product image, name, selected variations, quantity, and price for each item.
 3.  **Adjust Quantity:** You can increase or decrease the quantity of each item in your cart. The total price for that item and the overall cart total will update automatically [1].
 4.  **Remove Items:** To remove an item from your cart, click the "Remove" or "Delete" button associated with that item.
-5.  **Apply Coupons/Discounts (If Available):** If the platform supports coupons or discount codes, there may be a field to enter and apply them, which will adjust the total price.
-6.  **Proceed to Checkout:** Once you are satisfied with the items in your cart, click the "Proceed to Checkout" or "Checkout" button.
-7.  **Provide Shipping Information:** You will be prompted to enter or select your shipping address. If you are a registered user, your saved addresses may be available.
-8.  **Provide Payment Information:** Enter your payment details (e.g., credit card information, or select a payment method like PayPal). The platform ensures secure payment processing.
-9.  **Review Order Summary:** Before finalizing the order, you will see an order summary page detailing the items, quantities, prices, shipping cost, taxes (if applicable), and the total amount.
-10. **Place Order:** Review the order summary carefully and click the "Place Order" or "Confirm Purchase" button to complete the transaction. Your order will be submitted to the backend for processing.
-
+5.  **Proceed to Checkout:** Once you are satisfied with the items in your cart, click the "Proceed to Checkout" or "Checkout" button.
+6.  **Provide Shipping Information:** You will be prompted to enter or select your shipping address. If you are a registered user, your saved addresses may be available.
+7.  **Review Order Summary:** Before finalizing the order, you will see an order summary page detailing the items, quantities, prices, shipping cost, taxes (if applicable), and the total amount.
+8.  **Place Order:** Review the order summary carefully and click the "Place Order" or "Confirm Purchase" button to complete the transaction. Your order will be submitted to the backend for processing.
 **Security:** The checkout process is secured to protect your personal and payment information.
 
 ### 4.3.5 Order History
@@ -655,19 +572,14 @@ links or buttons for "Login" or "Sign Up" on the homepage or in the navigation b
     *   Add new products, providing details like name, description, price, brand, category, gender, and uploading images.
     *   Edit existing product information, including variations and stock levels.
     *   Delete products.
-5.  **Manage Users:** Access the User Management section to view a list of registered users. (Specific functionalities here would depend on implementation, but could include viewing user details or managing roles).
+5.  **Manage Users:** Access the User Management section to view a list of registered users.
 6.  **Manage Orders:** Go to the Order Management section to:
     *   View a list of all customer orders.
     *   View detailed information for each order.
     *   Update the status of orders (e.g., mark as shipped, delivered, or canceled).
-7.  **Access Other Admin Features:** Explore other sections of the dashboard for additional administrative functionalities, such as viewing logs or reports, if implemented.
+7.  **Explore Website Statistics:** Access sections of the dashboard dedicated to viewing website statistics, such as sales metrics, user activity, and traffic reports.
 
 **Note:** The Admin Dashboard is a separate application from the customer frontend and is secured to ensure only authorized personnel can access it.
-
-
-
-
-
 
 
 
@@ -688,10 +600,10 @@ Before you begin, ensure you have the following software installed on your syste
     npm install -g @angular/cli
     ```
 
-*   **Java Development Kit (JDK):** Version 22 or higher is required for the Spring Boot backend. You can download it from Oracle or use OpenJDK.
+*   **Java Development Kit (JDK):** Version 21 or higher is required for the Spring Boot backend. You can download it from Oracle or use OpenJDK.
 *   **Maven:** Version 3.x or higher is required for building the Spring Boot backend. Download it from [maven.apache.org](https://maven.apache.org/).
 *   **MySQL Database:** A running instance of MySQL database. You can install it locally or use a Docker container. Ensure you have a database user with appropriate permissions.
-*   **Git:** For cloning the project repositories. Download it from [git-scm.com](https://git-scm.com/).
+*   **Git:** For cloning the project repositories.
 
 ## 5.2 Repository Structure and Cloning
 
@@ -761,7 +673,7 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
 
     Alternatively, if you are using an IDE like IntelliJ IDEA, you can run the main application class directly.
 
-    The backend application will start, typically on port `8080`. You can verify its status by accessing the Swagger UI at `http://localhost:8080/swagger-ui.html`.
+    The backend application will start, typically on port `8081` as per our configuration refer to `application.properties`. You can verify its status by accessing the Swagger UI at `http://localhost:8081/swagger-ui.html`.
 
 ## 5.4 Frontend User Setup (ShoeShow-frontend-user)
 
@@ -786,7 +698,7 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
     ```typescript
     export const environment = {
       production: false,
-      apiUrl: 'http://localhost:8080/api' // Adjust if your backend API has a different base path
+      apiUrl: 'http://localhost:8081/api' // Adjust if your backend API has a different base path
     };
     ```
 
@@ -819,7 +731,7 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
     ```typescript
     export const environment = {
       production: false,
-      apiUrl: 'http://localhost:8080/api' // Adjust if your backend API has a different base path
+      apiUrl: 'http://localhost:8081/api' // Adjust if your backend API has a different base path
     };
     ```
 
@@ -829,7 +741,7 @@ The ShoeShow project is organized into multiple GitHub repositories, all nested 
     ng serve
     ```
 
-    The application will start a local development server, typically accessible on a different port (e.g., `http://localhost:4201/` or `http://localhost:4200/` if you stop the user frontend first). Check your console output for the exact port.
+    The application will start a local development server, typically accessible on a different port (e.g., `http://localhost:4201/` . Check your console output for the exact port.
 
 ## 5.6 Post-Installation Steps
 
@@ -935,7 +847,6 @@ All new features and bug fixes should be accompanied by appropriate tests (unit,
 *   **Frontend (Angular):** Run unit tests with `ng test` and end-to-end tests with `ng e2e` [1].
 *   **Backend (Spring Boot):** Run tests with `mvn test` [2].
 
-[1] /home/ubuntu/upload/README.md
 
 
 
@@ -971,13 +882,13 @@ Before diving into specific issues, consider these general troubleshooting steps
 **Possible Causes:**
 *   Incorrect database configuration in `application.properties`.
 *   MySQL database not running or inaccessible.
-*   Port conflict (e.g., port 8080 is already in use).
+*   Port conflict (e.g., port 8081 is already in use).
 *   Missing or incorrect Flyway migration scripts.
 
 **Solutions:**
 *   **Database Configuration:** Verify `spring.datasource.url`, `username`, and `password` in `application.properties`. Ensure the database name is correct and the user has privileges.
 *   **MySQL Status:** Check if your MySQL server is running. Use `sudo systemctl status mysql` on Linux or check services on Windows.
-*   **Port Conflict:** Change the backend port in `application.properties` (e.g., `server.port=8081`) or stop the process using port 8080.
+*   **Port Conflict:** Change the backend port in `application.properties` (e.g., `server.port=8081`) or stop the process using port 8081.
 *   **Flyway Migrations:** Check the Flyway logs during startup for migration errors. Ensure SQL scripts in `src/main/resources/db/migration` are valid and correctly versioned [1].
 
 #### Issue: 401 Unauthorized or 403 Forbidden errors from backend APIs.
@@ -1002,7 +913,7 @@ Before diving into specific issues, consider these general troubleshooting steps
 
 **Solutions:**
 *   **Verify Frontend URL:** Check the `apiUrl` in your frontend's `environment.ts` file to ensure it points to the correct backend address and base path.
-*   **Backend Status:** Confirm the backend application is running and accessible. Check Swagger UI (`http://localhost:8080/swagger-ui.html`) to see available endpoints.
+*   **Backend Status:** Confirm the backend application is running and accessible. Check Swagger UI (`http://localhost:8081/swagger-ui.html`) to see available endpoints.
 *   **Endpoint Path:** Double-check the exact path of the API endpoint. Remember that paths are case-sensitive.
 
 ### 7.2.2 Frontend Issues
@@ -1028,7 +939,7 @@ Before diving into specific issues, consider these general troubleshooting steps
 *   JavaScript errors in the browser console.
 
 **Solutions:**
-*   **Backend Status:** Ensure the backend is running and accessible. Try accessing a public backend endpoint directly in your browser (e.g., `http://localhost:8080/api/products`).
+*   **Backend Status:** Ensure the backend is running and accessible. Try accessing a public backend endpoint directly in your browser (e.g., `http://localhost:8081/api/products`).
 *   **API URL Configuration:** Verify the `apiUrl` in your frontend's `environment.ts` file is correct.
 *   **Browser Console:** Open the browser's developer console (F12) and check the 
 
@@ -1073,12 +984,11 @@ Network tab for failed API requests and the Console tab for JavaScript errors.
 
 #### Q5: Where can I find the API documentation?
 
-**A5:** The backend API documentation is automatically generated using Springdoc/OpenAPI (Swagger) and is typically accessible at `http://localhost:8080/swagger-ui.html` when the backend application is running locally.
+**A5:** The backend API documentation is automatically generated using Springdoc/OpenAPI (Swagger) and is typically accessible at `http://localhost:8081/swagger-ui.html` when the backend application is running locally.
 
 #### Q6: How is the AI chatbot integrated?
 
-**A6:** The AI chatbot is integrated into the `ShoeShow-frontend-user` application, specifically in the `ayb/ai-bot` branch. It communicates with a backend AI service (which could be part of the main ShoeShow backend or a separate service) via API calls to process user queries and provide intelligent responses. More details are in the [AI Chatbot Implementation Details](ai_chatbot_details.md) section.
-
+**A6:** The AI chatbot is integrated into the `ShoeShow-frontend-user` application. It communicates with the Groq API using the `"meta-llama/llama-4-scout-17b-16e-instruct"` model via HTTP requests. The chatbot uses well-crafted prompts and scenarios, allowing the AI to suggest which API endpoints to call based on user input. In the future, enhancements such as fine-tuning or Retrieval-Augmented Generation (RAG) with backend proxies may be implemented for a more effective AI chatbot experience.
 
 
 
@@ -1107,39 +1017,19 @@ The AI chatbot is integrated into the `ShoeShow-frontend-user` application, comm
 
 *   **Frontend Chatbot Component:** An Angular component within the `ShoeShow-frontend-user` responsible for rendering the chat interface, capturing user input, and displaying chatbot responses. This component manages the visual aspects of the conversation.
 *   **Frontend Service Layer:** An Angular service that handles the communication between the chatbot component and the backend AI service. This service is responsible for sending user queries and receiving responses via HTTP requests.
-*   **Backend AI Service/API:** This is the core intelligence of the chatbot. It could be:
-    *   **Part of the ShoeShow-backend:** The main Spring Boot backend could have a module dedicated to processing AI-related requests, potentially integrating with external AI APIs (e.g., Google Dialogflow, OpenAI, custom NLP models).
-    *   **A Separate Microservice:** A dedicated microservice specifically designed for AI processing, allowing for independent scaling and technology choices.
-    *   **Direct Integration with Third-Party AI Platform:** The frontend might directly communicate with a third-party AI platform (less common for complex interactions due to CORS and API key exposure, but possible for simple integrations).
+*   **Backend AI Service/API:** The AI chatbot is integrated into the `ShoeShow-frontend-user` application. It communicates with the Groq API using the `"meta-llama/llama-4-scout-17b-16e-instruct"` model via HTTP requests. The chatbot uses well-crafted prompts and scenarios, allowing the AI to suggest which API endpoints to call based on user input. In the future, enhancements such as fine-tuning or Retrieval-Augmented Generation (RAG) with backend proxies may be implemented for a more effective AI chatbot experience.
 *   **Natural Language Processing (NLP):** The backend AI service utilizes NLP techniques to understand user intent, extract entities from queries, and formulate appropriate responses.
 *   **Knowledge Base/Data Sources:** The AI service accesses relevant data, such as product information from the ShoeShow database, order details, or a predefined FAQ knowledge base, to provide accurate and context-aware answers.
 
-```mermaid
-graph TD
-    A[User (ShoeShow-frontend-user)] -->|User Input| B(Chatbot UI Component)
-    B -->|Send Query| C(Frontend Chatbot Service)
-    C -->|HTTP Request| D(Backend AI Service/API)
-    D -->|Process Query (NLP, Intent Recognition)| E(Knowledge Base/Database)
-    E -->|Retrieve Data/Formulate Response| D
-    D -->|HTTP Response| C
-    C -->|Display Response| B
-    B -->|Chatbot Response| A
+![img_2.png](img_2.png)
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bfb,stroke:#333,stroke-width:2px
-```
+
 *Figure 3: AI Chatbot Integration Flow*
 
 ## 8.3 Key Features of the AI Chatbot
 
 *   **Conversational Interface:** Provides a natural language interaction method for users.
-*   **Intent Recognition:** Ability to understand the user\'s goal or purpose behind their query (e.g., 
-
-
-product inquiry, order status, return policy).
+*   **Intent Recognition:** Ability to understand the user\'s goal or purpose behind their query (e.g.,product inquiry, order status, return policy).
 *   **Entity Extraction:** Identifying key pieces of information within the user\'s query, such as product names, order numbers, or specific questions.
 *   **Contextual Understanding:** Maintaining context throughout a conversation to provide more relevant and accurate responses.
 *   **Integration with E-commerce Data:** Ability to pull real-time data from the ShoeShow platform (e.g., product availability, order status) to answer specific user queries.
@@ -1168,14 +1058,16 @@ Configuration for the AI chatbot typically involves:
 *   **Model Parameters:** For custom AI models, configuration might include parameters related to model version, confidence thresholds, or specific intents to be handled.
 *   **Fallback Responses:** Predefined messages or actions to be taken when the chatbot cannot provide a direct answer.
 
-## 8.5 Highlighting AI Usage for Graduation Project
+## 8.5 Highlighting AI Usage
 
-For a graduation project, it is crucial to emphasize the AI chatbot\'s role and implementation to gain maximum credit. Key points to highlight include:
+It is crucial to emphasize the AI chatbot\'s role and implementation to gain maximum credit. 
+
+Key points to highlight include:
 
 *   **Innovation:** The integration of an AI chatbot demonstrates an innovative approach to enhancing user experience in an e-commerce platform, moving beyond standard functionalities.
 *   **Technical Complexity:** Discuss the technical challenges involved in integrating an AI service, including API communication, data serialization/deserialization, and handling asynchronous operations.
-*   **AI Model/Service Selection:** If a specific AI model or service (e.g., a custom-trained model, a cloud-based NLP service) was used, detail the rationale behind its selection and its capabilities.
-*   **Natural Language Processing (NLP) Concepts:** Explain how NLP principles (e.g., tokenization, sentiment analysis, intent recognition, entity extraction) are applied within the chatbot to understand user queries.
+*   **AI Model/Service Selection:** The chatbot uses the \`meta-llama/llama-4-scout-17b-16e-instruct\` model via the Groq API. This model was chosen for its advanced natural language understanding, strong conversational abilities, and suitability for e-commerce support scenarios, enabling accurate intent recognition and context-aware responses.
+*   **Natural Language Processing (NLP) Concepts:** NLP techniques such as tokenization, sentiment analysis, intent recognition, and entity extraction are applied within the chatbot to interpret user queries, extract relevant information (like product names or order numbers), and generate helpful, contextually appropriate replies.  
 *   **Data Integration:** Describe how the chatbot integrates with the ShoeShow platform\'s data (e.g., product catalog, order history) to provide context-aware responses.
 *   **User Experience Impact:** Quantify (if possible) or qualitatively describe the positive impact of the chatbot on user engagement, support efficiency, and overall satisfaction.
 *   **Future Enhancements:** Discuss potential future improvements for the chatbot, such as more advanced conversational flows, personalized recommendations, or integration with voice interfaces.
@@ -1191,10 +1083,7 @@ The ShoeShow AI Chatbot leverages the `meta-llama/llama-4-scout-17b-16e-instruct
 
 *   **Advanced Language Understanding:** The `llama-4-scout-17b-16e-instruct` model is highly capable of understanding complex user queries, including nuances, intent, and entities, which is crucial for providing accurate and relevant responses in an e-commerce context.
 *   **Contextual Awareness:** Its architecture allows for maintaining conversational context over longer interactions, enabling the chatbot to provide more coherent and helpful responses throughout a user\'s session.
-*   **Instruction Following:** The \'instruct\' variant of the model is specifically fine-tuned to follow instructions effectively, making it adept at handling specific user requests like 
-
-
-product inquiries, order status checks, and personalized recommendations.
+*   **Instruction Following:** The \'instruct\' variant of the model is specifically fine-tuned to follow instructions effectively, making it adept at handling specific user requests like product inquiries, order status checks, and personalized recommendations.
 *   **Scalability and Performance:** While a large model, its design allows for efficient inference, which is important for providing real-time responses to users in a production environment.
 *   **Versatility:** The model\'s general-purpose language capabilities make it suitable for a wide range of e-commerce-related queries, from simple FAQs to more complex product comparisons or troubleshooting assistance.
 
@@ -1224,28 +1113,13 @@ This section outlines potential future enhancements and areas for improvement fo
 *   **Internationalization and Localization:** Extend the platform to support multiple languages and currencies to reach a global audience.
 *   **Mobile Application:** Develop native mobile applications (iOS and Android) to provide a dedicated mobile shopping experience.
 *   **Admin Dashboard Enhancements:** Expand the administrative functionalities with features like detailed sales reports, inventory forecasting, user activity logs, and marketing campaign management tools.
-
-## 9.2 Technological Advancements and Integrations
-
+*   **Advanced AI Chatbot Implementation:** Enhance the AI chatbot with advanced features such as personalized shopping assistance, voice interaction capabilities, and integration with external knowledge bases for improved responses. Future improvements may include fine-tuning the AI model for domain-specific queries, implementing Retrieval-Augmented Generation (RAG) for more accurate and context-aware answers, and using reverse proxies to securely manage API requests and data flow between the chatbot, backend, and external AI services.
 *   **Microservices Architecture:** Explore migrating from a monolithic (or semi-monolithic) backend to a microservices architecture for better scalability, resilience, and independent deployment of services.
 *   **Serverless Computing:** Utilize serverless functions (e.g., AWS Lambda, Azure Functions) for specific tasks like image processing, email notifications, or scheduled jobs.
 *   **GraphQL API:** Consider implementing a GraphQL API as an alternative or addition to the REST API to provide clients with more flexibility in fetching data.
 *   **Container Orchestration:** Use container orchestration platforms like Kubernetes for managing and scaling Dockerized applications in production.
 *   **Advanced AI/ML Applications:** Further leverage AI and Machine Learning for tasks such as fraud detection, demand forecasting, personalized marketing, and improving the AI chatbot's capabilities.
 *   **Real-time Updates:** Implement real-time features using WebSockets for instant updates on order status, stock levels, or chat messages.
-
-## 9.3 Learning Outcomes and Project Evolution
-
-As a graduation project, documenting future enhancements also reflects on potential learning outcomes and the project's evolutionary path. This includes:
-
-*   **Exploring New Technologies:** Opportunities to learn and implement new frameworks, languages, or tools.
-*   **Scaling the Application:** Gaining experience in designing and implementing solutions for handling increased traffic and data.
-*   **Improving User Experience:** Continuously refining the user interface and interaction flows based on user feedback and analytics.
-*   **Deepening Domain Knowledge:** Further understanding the complexities and nuances of the e-commerce industry.
-*   **Adopting DevOps Practices:** Implementing more mature CI/CD pipelines, monitoring, and logging strategies.
-
-These potential enhancements provide a roadmap for the continued development and evolution of the ShoeShow platform, showcasing its potential beyond the initial graduation project scope.
-
 
 
 
@@ -1414,10 +1288,10 @@ jobs:
       with:
         submodules: true # Important for projects with submodules
 
-    - name: Set up JDK 22
+    - name: Set up JDK 21
       uses: actions/setup-java@v3
       with:
-        java-version: \"22\"
+        java-version: \"21\"
         distribution: \"temurin\"
 
     - name: Build with Maven
