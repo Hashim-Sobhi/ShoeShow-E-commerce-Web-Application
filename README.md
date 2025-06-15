@@ -1,124 +1,162 @@
-[![Angular](https://img.shields.io/badge/Angular-20%2B-DD0031?logo=angular&logoColor=white&style=for-the-badge)](https://angular.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white&style=for-the-badge)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white&style=for-the-badge)](https://nodejs.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![Status](https://img.shields.io/badge/status-active-brightgreen?style=for-the-badge)](#)
-[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange?style=for-the-badge)](CONTRIBUTING.md)
-
 # ShoeShow E-commerce Web Application
 
-ShoeShow is a modern, full-featured e-commerce web application for premium footwear, built with Angular 20+ and Angular Material. It offers a seamless shopping experience with advanced AI-powered features, user authentication, product browsing, shopping cart, wishlist, order management, and a mobile-friendly UI.
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://maven.apache.org/)
+[![Java](https://img.shields.io/badge/Java-21-blue)](https://adoptopenjdk.net/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.5-brightgreen)](https://spring.io/projects/spring-boot)
+[![Angular](https://img.shields.io/badge/Angular-20%2B-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-active-brightgreen)](#)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange)](CONTRIBUTING.md)
+[![MySQL](https://img.shields.io/badge/MySQL-8%2B-blue)](https://www.mysql.com/)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Hashim-Sobhi/ShoeShow-E-commerce-Web-Application)
+
+
 
 ---
 
-## Table of Contents
-- [Features](#features)
-- [AI & Model Integration](#ai--model-integration)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Development & Build](#development--build)
-- [Contributing](#contributing)
-- [License](#license)
+## 🛍️ Project Overview
+
+**ShoeShow** is a modern, full-featured e-commerce platform for premium footwear. It features a robust Java/Spring Boot backend and two Angular frontends (user & admin), offering secure authentication, product management, order processing, and an AI-powered chat assistant for a seamless shopping experience.
 
 ---
 
-## Features
-- User authentication (login/register)
-- Product catalog with advanced filters and details
-- Shopping cart and wishlist management
-- Order history and user profile
-- Responsive design (Angular Material + Bootstrap grid)
-- Animations and enhanced UX
-- Real-time chat support
-- AI-powered product recommendations and chat assistant
+## 🏗️ Architecture
 
----
-
-## AI & Model Integration
-ShoeShow leverages advanced AI to enhance user experience:
-- **AI Chat Assistant:** Real-time support and shopping guidance using a conversational interface.
-- **Product Recommendations:** Personalized suggestions based on user behavior and preferences.
-- **Model Used:**
-  - **meta-llama/llama-4-scout-17b-16e-instruct**
-  - Integrated via the backend and exposed through Angular interceptors and services (`groq-api.interceptor.ts`, `chat.service.ts`).
-  - Enables natural language understanding for chat and recommendations.
-
----
-
-## Tech Stack
-- **Frontend:** Angular 20+, Angular Material, Bootstrap
-- **State Management:** Angular services
-- **AI/ML:** Llama 4 Scout 17B (via API)
-- **Other:** RxJS, SCSS, TypeScript
-
----
-
-## Project Structure
 ```
-ShoeShow-frontend-user/
-├── src/
-│   ├── app/
-│   │   ├── core/           # Core services, models, interceptors
-│   │   ├── features/       # Feature modules (auth, cart, chat, home, orders, products, profile, wishlist)
-│   │   ├── shared/         # Shared directives, animations
-│   │   └── app.module.ts   # Main Angular module
-│   ├── assets/             # Images and static assets
-│   └── environments/       # Environment configs
-├── angular.json            # Angular CLI config
-├── package.json            # Dependencies
-└── README.md               # Project documentation
+ShoeShow-E-commerce-Web-Application/
+├── ShoeShow-backend/           # Spring Boot backend (REST API, DB, security, AI integration)
+├── ShoeShow-frontend-user/     # Angular user-facing frontend
+├── ShoeShow-frontend-admin/    # Angular admin dashboard
+└── Full_Docs/                  # Documentation
 ```
 
+![Architecture Diagram](https://raw.githubusercontent.com/Hashim-Sobhi/ShoeShow-E-commerce-Web-Application/main/Full_Docs/img.png)
+
 ---
 
-## Getting Started
+## ✨ Key Features
+
+- Secure user & admin authentication (JWT)
+- Product catalog with images, sizes, advanced filters
+- Shopping cart, wishlist, and order management
+- Admin dashboard for product, order, and customer management
+- AI-powered chat assistant (Llama 4 integration)
+- RESTful APIs with OpenAPI/Swagger docs
+- Database migrations (Flyway)
+- File upload for product images
+- Logging, monitoring, and analytics
+- Responsive, modern UI (Angular Material, Bootstrap)
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v18+ recommended)
-- [Angular CLI](https://angular.dev/tools/cli) (v20+)
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone <repo-url>
-   cd ShoeShow-frontend-user
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+- Java 21+, Maven 3.8+, MySQL 8+
+- Node.js 18+, npm 9+, Angular CLI 20+
 
----
+### 1. Clone the Monorepo
 
-## Development & Build
-
-### Development Server
-To start a local development server:
 ```bash
+git clone https://github.com/Hashim-Sobhi/ShoeShow-E-commerce-Web-Application.git
+cd ShoeShow-E-commerce-Web-Application
+git submodule update --init --recursive
+```
+
+### 2. Backend Setup
+
+```bash
+cd ShoeShow-backend
+# Configure DB in src/main/resources/application.properties
+mvn clean spring-boot:run
+```
+- API Docs: [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
+
+### 3. User Frontend
+
+```bash
+cd ../ShoeShow-frontend-user
+npm install
 ng serve
 ```
-Visit [http://localhost:4200/](http://localhost:4200/).
+- Visit: [http://localhost:4200/](http://localhost:4200/)
 
-### Production Build
-To build the project for production:
+### 4. Admin Frontend
+
 ```bash
-ng build
+cd ../ShoeShow-frontend-admin
+npm install
+ng serve
 ```
-Artifacts are stored in the `dist/` directory.
+- Visit: [http://localhost:4201/](http://localhost:4201/)
 
 ---
 
-## Contributing
+## 🧠 AI Chatbot Integration
+
+- **AI Chat Assistant:** Real-time support and shopping guidance (Llama 4 Scout 17B via Groq API)
+- **Personalized Recommendations:** Based on user behavior
+- **Integration:** Angular frontend communicates with backend AI endpoints
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Java 21, Spring Boot 3.4.5, Spring Data JPA, Spring Security, JWT, MySQL, Flyway, MapStruct, Lombok, OpenAPI/Swagger, JUnit
+- **Frontend:** Angular 20+, Angular Material, Bootstrap, RxJS, SCSS, TypeScript
+- **AI/ML:** meta-llama/llama-4-scout-17b-16e-instruct (API integration)
+
+---
+
+## 🗄️ Database & Migrations
+
+- MySQL database: `iti_grad`
+- Flyway migration scripts: `ShoeShow-backend/src/main/resources/db/migration/`
+- Sample data: `ShoeShow-backend/script_data.sql`, `ShoeShow-backend/db_script.sql`
+
+---
+
+## 🧪 Testing
+
+- Backend: `mvn test` (JUnit)
+- Frontend: `ng test` (Angular CLI, Jasmine, Karma)
+
+---
+
+## 📦 Deployment
+
+- Backend: `mvn clean package` → `java -jar target/shoeshow-backend.jar`
+- Frontend: `ng build` (artifacts in `dist/`)
+
+---
+
+## 🤝 Contributing
+
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature/your-feature`)
 3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
+4. Push and open a Pull Request
+
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for details.
 
 ---
 
-## License
+## 📚 Documentation & Support
+
+- [Full Documentation](./full_documentation.md)
+- [DeepWiki Project Page](https://deepwiki.com/Hashim-Sobhi/ShoeShow-E-commerce-Web-Application)
+- [Backend DeepWiki](https://deepwiki.com/ahmedelbrmbaly/ShoeShow-backup)
+- [User Frontend DeepWiki](https://deepwiki.com/ahmedelbrmbaly/shoeshow-frontend-user)
+- [Admin Frontend DeepWiki](https://deepwiki.com/ahmedelbrmbaly/shoeshow-frontend-admin)
+
+---
+
+## 📝 License
+
 This project is licensed under the MIT License.
 
 ---
+
+© 2025 ShoeShow. All rights reserved.
